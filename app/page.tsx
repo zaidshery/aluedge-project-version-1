@@ -420,20 +420,28 @@ export default function HomePage() {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__content">
-            <p className="eyebrow">Engineered to perform. Designed to inspire.</p>
+            <p className="eyebrow desktop-only">Engineered to perform. Designed to inspire.</p>
             <h1>
               <span className="hero__title-desktop">
                 <span>Premium Fenestration</span>
                 <span>Solutions for</span>
               </span>
-              <span className="hero__title-accent">Modern Architecture</span>
+              <span className="hero__title-mobile">
+                Premium Fenestration,<br />
+                Facade &amp; Glazing<br />
+                Solutions
+              </span>
+              <span className="hero__title-accent desktop-only">Modern Architecture</span>
             </h1>
-            <p className="hero__lead">
+            <p className="hero__lead desktop-only">
               AluEdge designs and delivers precision-engineered aluminium, uPVC, facade,
               glazing, cladding, ceiling, railing, and architectural systems for residential,
               commercial, hospitality, and infrastructure projects.
             </p>
-            <div className="hero__trust" aria-label="Project delivery strengths">
+            <p className="hero__lead mobile-only">
+              Advanced aluminium, uPVC windows &amp; doors, façades, cladding, and glazing systems crafted for modern architecture.
+            </p>
+            <div className="hero__trust desktop-only" aria-label="Project delivery strengths">
               <span>
                 <CheckCircle2 size={17} strokeWidth={2.2} /> 200+ projects delivered
               </span>
@@ -442,23 +450,36 @@ export default function HomePage() {
               </span>
             </div>
             <div className="hero__actions">
-              <Button href="#solutions">Explore Solutions</Button>
-              <Button href="#projects" variant="secondary">
-                View Projects
-              </Button>
+              <Button href="#contact" variant="primary">Get Free Quote</Button>
+              <Button href="#contact" variant="outline">Book Consultation</Button>
             </div>
-            <a className="hero__contact-link" href="#contact">
+            <a className="hero__contact-link desktop-only" href="#contact">
               For project enquiries, connect with our team <ArrowRight size={15} />
             </a>
           </div>
           <div className="hero__media">
             <Image
               alt="Premium architectural facade with large glass fenestration by AluEdge"
+              className="hero__poster"
               fill
               priority
               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 48px), (max-width: 1440px) 54vw, 820px"
               src="/images/hero-architecture.jpg"
             />
+            <video
+              aria-hidden="true"
+              autoPlay
+              className="hero__video"
+              loop
+              muted
+              playsInline
+              poster="/images/hero-architecture.jpg"
+              preload="metadata"
+            >
+              {/* Replace this placeholder path with compressed verified project/facade video.
+                  Use a short 5-10 second muted loop, ideally MP4/WebM and under a few MB. */}
+              <source media="(min-width: 768px)" src="/videos/aluedge-hero.mp4" type="video/mp4" />
+            </video>
             <div className="hero__floating-card">
               <span>Pan-India Project Execution</span>
               <strong>Windows / Facades / Glazing / Cladding</strong>
@@ -482,7 +503,12 @@ export default function HomePage() {
       <section className="mobile-why" aria-label="Why choose AluEdge">
         <h2>Why Choose AluEdge</h2>
         <div>
-          {reasons.slice(1, 5).map(({ title, text, Icon }) => (
+          {[
+            { title: "Premium Quality", text: "Superior materials for lasting performance.", Icon: ShieldCheck },
+            { title: "Expert Team", text: "Skilled professionals committed to excellence.", Icon: Users },
+            { title: "Custom Solutions", text: "Tailored systems to match your exact needs.", Icon: Wrench },
+            { title: "On-Time Delivery", text: "We value your time and ensure on-time project delivery.", Icon: CalendarDays }
+          ].map(({ title, text, Icon }) => (
             <article key={title}>
               <Icon size={25} strokeWidth={1.45} />
               <h3>{title}</h3>
@@ -550,11 +576,14 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <div className="solutions__actions">
+        <div className="solutions__actions desktop-only">
           <Button href="#contact">Discuss Your Requirement</Button>
           <Button href="#projects" variant="secondary">
             View Projects
           </Button>
+        </div>
+        <div className="solutions__actions mobile-only">
+          <Button href="#solutions" variant="primary">View All Products</Button>
         </div>
       </section>
 
@@ -609,11 +638,14 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <div className="projects__actions">
+        <div className="projects__actions desktop-only">
           <Button href="#projects" variant="secondary">
             View Project Gallery
           </Button>
           <Button href="#contact">Start Similar Project</Button>
+        </div>
+        <div className="projects__actions mobile-only">
+          <Button href="#projects" variant="primary">View All Projects</Button>
         </div>
       </section>
 
