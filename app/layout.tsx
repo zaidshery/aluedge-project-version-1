@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "AluEdge Fenestration Solutions",
   description:
     "Premium windows, doors, facades, cladding and architectural fenestration solutions across India.",
+  icons: {
+    icon: "/images/aluedge-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

@@ -108,42 +108,42 @@ const solutions: SolutionCard[] = [
     title: "Windows & Doors",
     text: "Thermally efficient aluminium and uPVC openings engineered for comfort, security, and long-term performance.",
     Icon: Home,
-    image: "/images/industry-residential.jpg",
+    image: "/images/optimized/industry-residential-820.jpg",
     features: ["Aluminium / uPVC", "Thermal sealing"],
   },
   {
     title: "Facade & Glazing",
     text: "Curtain wall, structural glazing, and spider glazing systems shaped for high-performing building envelopes.",
     Icon: Building2,
-    image: "/images/industry-commercial.jpg",
+    image: "/images/optimized/industry-commercial-820.jpg",
     features: ["Curtain wall", "Spider glazing"],
   },
   {
     title: "Cladding Solutions",
     text: "ACP, HPL, wet, and dry cladding packages with refined finishes and dependable site coordination.",
     Icon: Layers,
-    image: "/images/project-hotel.jpg",
+    image: "/images/optimized/project-hotel-820.jpg",
     features: ["ACP / HPL", "Wet & dry systems"],
   },
   {
     title: "Railing & Decking",
     text: "Elegant railing and decking details that balance safety, durability, and architectural intent.",
     Icon: Wrench,
-    image: "/images/project-airport.jpg",
+    image: "/images/optimized/project-airport-820.jpg",
     features: ["Balustrades", "Exterior durability"],
   },
   {
     title: "Ceiling Systems",
     text: "Functional ceiling systems for hospitality, commercial, and institutional interiors.",
     Icon: Layers,
-    image: "/images/industry-hospitality.jpg",
+    image: "/images/optimized/industry-hospitality-820.jpg",
     features: ["Linear ceilings", "Clean services"],
   },
   {
     title: "Color & Materials",
     text: "Finish guidance for profiles, glass, panels, and textures that align with the project palette.",
     Icon: Palette,
-    image: "/images/cta-building.jpg",
+    image: "/images/optimized/cta-building-820.jpg",
     features: ["Finish matching", "Material guidance"],
   },
 ];
@@ -155,7 +155,7 @@ const projects: ProjectCard[] = [
     location: "Hyderabad, Telangana",
     system: "Windows / Railing / Glazing",
     text: "A refined residential envelope with large-format openings, clean sightlines, and durable exterior detailing.",
-    image: "/images/project-residence.jpg",
+    image: "/images/optimized/project-residence-820.jpg",
   },
   {
     title: "Commercial Glazing System",
@@ -163,7 +163,7 @@ const projects: ProjectCard[] = [
     location: "Bengaluru, Karnataka",
     system: "Facade / Office Partitions",
     text: "Performance glazing and partition systems planned for daily workplace use, acoustic comfort, and a crisp corporate finish.",
-    image: "/images/project-office.jpg",
+    image: "/images/optimized/project-office-820.jpg",
   },
   {
     title: "Hospitality Entrance Solution",
@@ -171,7 +171,7 @@ const projects: ProjectCard[] = [
     location: "Mumbai, Maharashtra",
     system: "Doors / Canopy / Cladding",
     text: "A polished guest-facing entrance package combining cladding, glazing, and precise aluminium detailing.",
-    image: "/images/project-hotel.jpg",
+    image: "/images/optimized/project-hotel-820.jpg",
   },
   {
     title: "Infrastructure Facade Package",
@@ -179,7 +179,7 @@ const projects: ProjectCard[] = [
     location: "New Delhi, India",
     system: "Facade / Cladding / Glazing",
     text: "Durable architectural systems organized for large public environments and demanding site execution.",
-    image: "/images/project-airport.jpg",
+    image: "/images/optimized/project-airport-820.jpg",
   },
 ];
 
@@ -188,12 +188,6 @@ const stats: StatCard[] = [
   { value: "Pan-India", label: "Execution Support", Icon: Globe2 },
   { value: "Resi + Comm", label: "Project Experience", Icon: Users },
   { value: "Facade + Fenestration", label: "System Expertise", Icon: ShieldCheck },
-];
-
-const mobileProof: StatCard[] = [
-  { value: "2009", label: "Established", Icon: CalendarDays },
-  { value: "200+", label: "Projects", Icon: Building2 },
-  { value: "Premium", label: "Materials", Icon: ShieldCheck },
 ];
 
 const reasons: IconCard[] = [
@@ -233,25 +227,25 @@ const industries: IndustrySegment[] = [
   {
     title: "Residential",
     text: "Elegant openings, railing, and glazing systems for villas, apartments, and premium homes.",
-    image: "/images/industry-residential.jpg",
+    image: "/images/optimized/industry-residential-1200.jpg",
     systems: ["Windows", "Doors", "Railing"],
   },
   {
     title: "Commercial",
     text: "Facade, office partition, and glazing packages for modern workplace environments.",
-    image: "/images/industry-commercial.jpg",
+    image: "/images/optimized/industry-commercial-1200.jpg",
     systems: ["Facades", "Partitions", "Glazing"],
   },
   {
     title: "Hospitality",
     text: "Guest-facing entrances, canopies, ceilings, and cladding with refined finish quality.",
-    image: "/images/industry-hospitality.jpg",
+    image: "/images/optimized/industry-hospitality-1200.jpg",
     systems: ["Entrances", "Cladding", "Ceilings"],
   },
   {
     title: "Infrastructure",
     text: "Durable facade, glazing, and cladding systems for high-use institutional and public projects.",
-    image: "/images/industry-infrastructure.jpg",
+    image: "/images/optimized/industry-infrastructure-1200.jpg",
     systems: ["Facade", "Cladding", "Execution"],
   },
 ];
@@ -290,7 +284,7 @@ function BrandMark({ priority = false }: { priority?: boolean }) {
         className="brand__logo"
         height={354}
         priority={priority}
-        src="/images/aluedge-logo.png"
+            src="/images/optimized/aluedge-logo-820.png"
         width={1322}
       />
     </Link>
@@ -420,131 +414,107 @@ export default function HomePage() {
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__content">
-            <p className="eyebrow desktop-only">Engineered to perform. Designed to inspire.</p>
+            <p className="eyebrow">Engineered to perform. Designed to inspire.</p>
             <h1>
               <span className="hero__title-desktop">
-                <span>Premium Fenestration</span>
-                <span>Solutions for</span>
+                <span className="hero__title-main">Premium Fenestration,</span>
+                <span>Facade &amp; Glazing</span>
+                <span className="hero__title-accent">Solutions</span>
               </span>
               <span className="hero__title-mobile">
-                Premium Fenestration,<br />
-                Facade &amp; Glazing<br />
-                Solutions
+                Premium Fenestration, <span>Facade &amp; Glazing Solutions</span>
               </span>
-              <span className="hero__title-accent desktop-only">Modern Architecture</span>
             </h1>
-            <p className="hero__lead desktop-only">
-              AluEdge designs and delivers precision-engineered aluminium, uPVC, facade,
-              glazing, cladding, ceiling, railing, and architectural systems for residential,
-              commercial, hospitality, and infrastructure projects.
+            <p className="hero__lead hero__lead-desktop">
+              Advanced aluminium, uPVC windows and doors, facades, cladding, and glazing
+              systems crafted for modern architecture.
             </p>
-            <p className="hero__lead mobile-only">
-              Advanced aluminium, uPVC windows &amp; doors, façades, cladding, and glazing systems crafted for modern architecture.
+            <p className="hero__lead hero__lead-mobile">
+              Advanced aluminium, uPVC windows &amp; doors, facades, cladding, and glazing
+              systems crafted for modern architecture.
             </p>
-            <div className="hero__trust desktop-only" aria-label="Project delivery strengths">
-              <span>
-                <CheckCircle2 size={17} strokeWidth={2.2} /> 200+ projects delivered
-              </span>
-              <span>
-                <Globe2 size={17} strokeWidth={2.2} /> Pan-India execution
-              </span>
-            </div>
             <div className="hero__actions">
               <Button href="#contact" variant="primary">Get Free Quote</Button>
               <Button href="#contact" variant="outline">Book Consultation</Button>
             </div>
-            <a className="hero__contact-link desktop-only" href="#contact">
+            <a className="hero__contact-link" href="#contact">
               For project enquiries, connect with our team <ArrowRight size={15} />
             </a>
           </div>
           <div className="hero__media">
-            <Image
-              alt="Premium architectural facade with large glass fenestration by AluEdge"
-              className="hero__poster"
-              fill
-              priority
-              sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc(100vw - 48px), (max-width: 1440px) 54vw, 820px"
-              src="/images/hero-architecture.jpg"
-            />
-            <video
-              aria-hidden="true"
-              autoPlay
-              className="hero__video"
-              loop
-              muted
-              playsInline
-              poster="/images/hero-architecture.jpg"
-              preload="metadata"
-            >
-              {/* Replace this placeholder path with compressed verified project/facade video.
-                  Use a short 5-10 second muted loop, ideally MP4/WebM and under a few MB. */}
-              <source media="(min-width: 768px)" src="/videos/aluedge-hero.mp4" type="video/mp4" />
-            </video>
+              <Image
+                alt="Premium architectural facade with large glass fenestration by AluEdge"
+                className="hero__poster hero__poster--desktop"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 820px"
+                src="/images/optimized/aluedge-hero-main-desktop-final.webp"
+              />
+              <Image
+                alt="Premium architectural facade vertical crop for mobile"
+                className="hero__poster hero__poster--mobile"
+                fill
+                priority
+                sizes="(max-width:640px) calc(100vw - 64px)"
+                src="/images/optimized/aluedge-hero-mobile-final.webp"
+              />
             <div className="hero__floating-card">
               <span>Pan-India Project Execution</span>
               <strong>Windows / Facades / Glazing / Cladding</strong>
             </div>
           </div>
+          <div className="hero__trust" aria-label="Project delivery strengths">
+            <span>
+              <CalendarDays size={24} strokeWidth={1.6} />
+              <strong>2009</strong>
+              <small>Established</small>
+            </span>
+            <span>
+              <Building2 size={24} strokeWidth={1.6} />
+              <strong>200+</strong>
+              <small>Projects</small>
+            </span>
+            <span>
+              <Award size={24} strokeWidth={1.6} />
+              <strong>Premium</strong>
+              <small>Materials</small>
+            </span>
+          </div>
         </div>
       </section>
 
-      <section className="mobile-proof" aria-label="AluEdge highlights">
-        {mobileProof.map(({ value, label, Icon }) => (
-          <article key={label}>
-            <Icon size={22} strokeWidth={1.7} />
-            <div>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </div>
-          </article>
-        ))}
-      </section>
-
-      <section className="mobile-why" aria-label="Why choose AluEdge">
-        <h2>Why Choose AluEdge</h2>
-        <div>
-          {[
-            { title: "Premium Quality", text: "Superior materials for lasting performance.", Icon: ShieldCheck },
-            { title: "Expert Team", text: "Skilled professionals committed to excellence.", Icon: Users },
-            { title: "Custom Solutions", text: "Tailored systems to match your exact needs.", Icon: Wrench },
-            { title: "On-Time Delivery", text: "We value your time and ensure on-time project delivery.", Icon: CalendarDays }
-          ].map(({ title, text, Icon }) => (
+      <section className="feature-strip container" aria-label="Product strengths">
+        <div className="feature-strip__track">
+          {featureStrip.map(({ title, text, Icon }) => (
             <article key={title}>
-              <Icon size={25} strokeWidth={1.45} />
-              <h3>{title}</h3>
-              <p>{text}</p>
+              <Icon size={34} strokeWidth={1.8} />
+              <div>
+                <h2>{title}</h2>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+          {featureStrip.map(({ title, text, Icon }) => (
+            <article aria-hidden="true" className="feature-strip__clone" key={`${title}-loop`}>
+              <Icon size={34} strokeWidth={1.8} />
+              <div>
+                <h2>{title}</h2>
+                <p>{text}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="feature-strip container" aria-label="Product strengths">
-        {featureStrip.map(({ title, text, Icon }) => (
-          <article key={title}>
-            <Icon size={34} strokeWidth={1.8} />
-            <div>
-              <h2>{title}</h2>
-              <p>{text}</p>
-            </div>
-          </article>
-        ))}
-      </section>
-
       <section className="solutions container" id="solutions">
         <div className="section-heading section-heading--center">
           <p className="eyebrow">Complete fenestration solutions</p>
-          <h2>
-            <span className="desktop-title">End-to-End Systems for Modern Building Envelopes</span>
-            <span className="mobile-title">Products & Services</span>
-          </h2>
+          <h2>End-to-End Systems for Modern Building Envelopes</h2>
           <p className="section-heading__text">
             From precision windows and doors to facade, glazing, cladding, ceiling, railing,
             and partition systems, AluEdge coordinates architectural packages with a clear
             performance-first approach.
           </p>
-          <a className="mobile-section-link" href="#solutions">
-            View All <ArrowRight size={14} />
-          </a>
         </div>
         <div className="solutions__grid">
           {solutions.map(({ title, text, Icon, image, features }) => (
@@ -576,24 +546,18 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <div className="solutions__actions desktop-only">
+        <div className="solutions__actions">
           <Button href="#contact">Discuss Your Requirement</Button>
           <Button href="#projects" variant="secondary">
             View Projects
           </Button>
-        </div>
-        <div className="solutions__actions mobile-only">
-          <Button href="#solutions" variant="primary">View All Products</Button>
         </div>
       </section>
 
       <section className="projects container" id="projects">
         <div className="projects__intro">
           <p className="eyebrow">Building landmarks together</p>
-          <h2>
-            <span className="desktop-title">Projects That Define Performance & Beauty</span>
-            <span className="mobile-title">Featured Projects</span>
-          </h2>
+          <h2>Projects That Define Performance & Beauty</h2>
           <p>
             A closer look at AluEdge project applications across residential, commercial,
             hospitality, and infrastructure environments.
@@ -638,14 +602,11 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <div className="projects__actions desktop-only">
+        <div className="projects__actions">
           <Button href="#projects" variant="secondary">
             View Project Gallery
           </Button>
           <Button href="#contact">Start Similar Project</Button>
-        </div>
-        <div className="projects__actions mobile-only">
-          <Button href="#projects" variant="primary">View All Projects</Button>
         </div>
       </section>
 
@@ -756,7 +717,7 @@ export default function HomePage() {
             alt="AluEdge building project"
             fill
             sizes="(max-width: 860px) calc(100vw - 32px), (max-width: 1440px) 260px, 300px"
-            src="/images/cta-building.jpg"
+            src="/images/optimized/cta-building-1200.jpg"
           />
         </div>
         <div className="cta__content">
