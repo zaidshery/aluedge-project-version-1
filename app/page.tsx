@@ -69,6 +69,17 @@ type NavItem = {
   }[];
 };
 
+const businessDetails = {
+  phone: "+91 98765 43210",
+  phoneHref: "tel:+919876543210",
+  email: "info@aluedge.in",
+  emailHref: "mailto:info@aluedge.in",
+  establishedYear: "2009",
+  projectsDelivered: "200+",
+  serviceArea: "Pan-India",
+  address: "201, Skyline Tower, Financial District, Hyderabad, Telangana - 500081",
+} as const;
+
 const navigation: NavItem[] = [
   { label: "Home", href: "/" },
   {
@@ -108,42 +119,42 @@ const solutions: SolutionCard[] = [
     title: "Windows & Doors",
     text: "Thermally efficient aluminium and uPVC openings engineered for comfort, security, and long-term performance.",
     Icon: Home,
-    image: "/images/optimized/industry-residential-820.jpg",
+    image: "/images/optimized/aluedge-solution-windows-820.webp",
     features: ["Aluminium / uPVC", "Thermal sealing"],
   },
   {
     title: "Facade & Glazing",
     text: "Curtain wall, structural glazing, and spider glazing systems shaped for high-performing building envelopes.",
     Icon: Building2,
-    image: "/images/optimized/industry-commercial-820.jpg",
+    image: "/images/optimized/aluedge-solution-facade-820.webp",
     features: ["Curtain wall", "Spider glazing"],
   },
   {
     title: "Cladding Solutions",
     text: "ACP, HPL, wet, and dry cladding packages with refined finishes and dependable site coordination.",
     Icon: Layers,
-    image: "/images/optimized/project-hotel-820.jpg",
+    image: "/images/optimized/aluedge-solution-cladding-820.webp",
     features: ["ACP / HPL", "Wet & dry systems"],
   },
   {
     title: "Railing & Decking",
     text: "Elegant railing and decking details that balance safety, durability, and architectural intent.",
     Icon: Wrench,
-    image: "/images/optimized/project-airport-820.jpg",
+    image: "/images/optimized/aluedge-solution-railing-820.webp",
     features: ["Balustrades", "Exterior durability"],
   },
   {
     title: "Ceiling Systems",
     text: "Functional ceiling systems for hospitality, commercial, and institutional interiors.",
     Icon: Layers,
-    image: "/images/optimized/industry-hospitality-820.jpg",
+    image: "/images/optimized/aluedge-solution-ceiling-820.webp",
     features: ["Linear ceilings", "Clean services"],
   },
   {
     title: "Color & Materials",
     text: "Finish guidance for profiles, glass, panels, and textures that align with the project palette.",
     Icon: Palette,
-    image: "/images/optimized/cta-building-820.jpg",
+    image: "/images/optimized/aluedge-solution-materials-820.webp",
     features: ["Finish matching", "Material guidance"],
   },
 ];
@@ -155,7 +166,7 @@ const projects: ProjectCard[] = [
     location: "Hyderabad, Telangana",
     system: "Windows / Railing / Glazing",
     text: "A refined residential envelope with large-format openings, clean sightlines, and durable exterior detailing.",
-    image: "/images/optimized/project-residence-820.jpg",
+    image: "/images/optimized/aluedge-project-residence-820.webp",
   },
   {
     title: "Commercial Glazing System",
@@ -163,7 +174,7 @@ const projects: ProjectCard[] = [
     location: "Bengaluru, Karnataka",
     system: "Facade / Office Partitions",
     text: "Performance glazing and partition systems planned for daily workplace use, acoustic comfort, and a crisp corporate finish.",
-    image: "/images/optimized/project-office-820.jpg",
+    image: "/images/optimized/aluedge-project-office-820.webp",
   },
   {
     title: "Hospitality Entrance Solution",
@@ -171,7 +182,7 @@ const projects: ProjectCard[] = [
     location: "Mumbai, Maharashtra",
     system: "Doors / Canopy / Cladding",
     text: "A polished guest-facing entrance package combining cladding, glazing, and precise aluminium detailing.",
-    image: "/images/optimized/project-hotel-820.jpg",
+    image: "/images/optimized/aluedge-project-hotel-820.webp",
   },
   {
     title: "Infrastructure Facade Package",
@@ -179,13 +190,13 @@ const projects: ProjectCard[] = [
     location: "New Delhi, India",
     system: "Facade / Cladding / Glazing",
     text: "Durable architectural systems organized for large public environments and demanding site execution.",
-    image: "/images/optimized/project-airport-820.jpg",
+    image: "/images/optimized/aluedge-project-infrastructure-820.webp",
   },
 ];
 
 const stats: StatCard[] = [
-  { value: "200+", label: "Projects Delivered", Icon: Building2 },
-  { value: "Pan-India", label: "Execution Support", Icon: Globe2 },
+  { value: businessDetails.projectsDelivered, label: "Projects Delivered", Icon: Building2 },
+  { value: businessDetails.serviceArea, label: "Execution Support", Icon: Globe2 },
   { value: "Resi + Comm", label: "Project Experience", Icon: Users },
   { value: "Facade + Fenestration", label: "System Expertise", Icon: ShieldCheck },
 ];
@@ -227,25 +238,25 @@ const industries: IndustrySegment[] = [
   {
     title: "Residential",
     text: "Elegant openings, railing, and glazing systems for villas, apartments, and premium homes.",
-    image: "/images/optimized/industry-residential-1200.jpg",
+    image: "/images/optimized/aluedge-industry-residential-1200.webp",
     systems: ["Windows", "Doors", "Railing"],
   },
   {
     title: "Commercial",
     text: "Facade, office partition, and glazing packages for modern workplace environments.",
-    image: "/images/optimized/industry-commercial-1200.jpg",
+    image: "/images/optimized/aluedge-industry-commercial-1200.webp",
     systems: ["Facades", "Partitions", "Glazing"],
   },
   {
     title: "Hospitality",
     text: "Guest-facing entrances, canopies, ceilings, and cladding with refined finish quality.",
-    image: "/images/optimized/industry-hospitality-1200.jpg",
+    image: "/images/optimized/aluedge-industry-hospitality-1200.webp",
     systems: ["Entrances", "Cladding", "Ceilings"],
   },
   {
     title: "Infrastructure",
     text: "Durable facade, glazing, and cladding systems for high-use institutional and public projects.",
-    image: "/images/optimized/industry-infrastructure-1200.jpg",
+    image: "/images/optimized/aluedge-industry-infrastructure-1200.webp",
     systems: ["Facade", "Cladding", "Execution"],
   },
 ];
@@ -299,13 +310,13 @@ export default function HomePage() {
           <p>Serving Architects, Builders & Developers Across India</p>
           <div className="topbar__contact">
             <span>
-              <Phone size={15} /> +91 98765 43210
+              <Phone size={15} /> {businessDetails.phone}
             </span>
             <span>
-              <Mail size={15} /> info@aluedge.in
+              <Mail size={15} /> {businessDetails.email}
             </span>
             <span>
-              <MapPin size={15} /> Pan-India Service
+              <MapPin size={15} /> {businessDetails.serviceArea} Service
             </span>
           </div>
         </div>
@@ -442,36 +453,36 @@ export default function HomePage() {
             </a>
           </div>
           <div className="hero__media">
-              <Image
-                alt="Premium architectural facade with large glass fenestration by AluEdge"
-                className="hero__poster hero__poster--desktop"
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 820px"
-                src="/images/optimized/aluedge-hero-main-desktop-final.webp"
-              />
-              <Image
-                alt="Premium architectural facade vertical crop for mobile"
-                className="hero__poster hero__poster--mobile"
-                fill
-                priority
-                sizes="(max-width:640px) calc(100vw - 64px)"
-                src="/images/optimized/aluedge-hero-mobile-final.webp"
-              />
+            <Image
+              alt="Premium architectural facade with large glass fenestration by AluEdge"
+              className="hero__poster hero__poster--desktop"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 820px"
+              src="/images/optimized/aluedge-hero-campus-1600.webp"
+            />
+            <Image
+              alt="Premium architectural facade vertical crop for mobile"
+              className="hero__poster hero__poster--mobile"
+              fill
+              priority
+              sizes="(max-width: 760px) 100vw, 820px"
+              src="/images/optimized/aluedge-hero-mobile-final.webp"
+            />
             <div className="hero__floating-card">
-              <span>Pan-India Project Execution</span>
+              <span>{businessDetails.serviceArea} Project Execution</span>
               <strong>Windows / Facades / Glazing / Cladding</strong>
             </div>
           </div>
           <div className="hero__trust" aria-label="Project delivery strengths">
             <span>
               <CalendarDays size={24} strokeWidth={1.6} />
-              <strong>2009</strong>
+              <strong>{businessDetails.establishedYear}</strong>
               <small>Established</small>
             </span>
             <span>
               <Building2 size={24} strokeWidth={1.6} />
-              <strong>200+</strong>
+              <strong>{businessDetails.projectsDelivered}</strong>
               <small>Projects</small>
             </span>
             <span>
@@ -495,7 +506,7 @@ export default function HomePage() {
             </article>
           ))}
           {featureStrip.map(({ title, text, Icon }) => (
-            <article aria-hidden="true" className="feature-strip__clone" key={`${title}-loop`}>
+            <article aria-hidden="true" className="feature-strip__item-dup" key={`${title}-loop`}>
               <Icon size={34} strokeWidth={1.8} />
               <div>
                 <h2>{title}</h2>
@@ -570,7 +581,6 @@ export default function HomePage() {
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
               <div className="project-card__image">
-                {/* Replace these local placeholders with verified project photography when available. */}
                 <Image
                   alt={`${project.title} architectural project in ${project.location}`}
                   height={178}
@@ -678,7 +688,6 @@ export default function HomePage() {
           <div className="industries__grid">
             {industries.map((industry) => (
               <article className="industry-card" key={industry.title}>
-                {/* Replace these local placeholders with verified segment photography when available. */}
                 <Image
                   alt={`${industry.title} fenestration application`}
                   fill
@@ -717,7 +726,7 @@ export default function HomePage() {
             alt="AluEdge building project"
             fill
             sizes="(max-width: 860px) calc(100vw - 32px), (max-width: 1440px) 260px, 300px"
-            src="/images/optimized/cta-building-1200.jpg"
+            src="/images/optimized/aluedge-cta-building-1200.webp"
           />
         </div>
         <div className="cta__content">
@@ -755,10 +764,10 @@ export default function HomePage() {
               India.
             </p>
             <div className="footer__contact-actions" aria-label="Primary contact methods">
-              <a href="tel:+919876543210">
+              <a href={businessDetails.phoneHref}>
                 <Phone size={15} /> Call
               </a>
-              <a href="mailto:info@aluedge.in">
+              <a href={businessDetails.emailHref}>
                 <Mail size={15} /> Email
               </a>
             </div>
@@ -790,10 +799,10 @@ export default function HomePage() {
             </div>
             <div>
               <h2>Contact Us</h2>
-              <a href="tel:+919876543210">+91 98765 43210</a>
-              <a href="mailto:info@aluedge.in">info@aluedge.in</a>
-              <p>201, Skyline Tower, Financial District, Hyderabad, Telangana - 500081</p>
-              <p>Service area: Pan-India project support</p>
+              <a href={businessDetails.phoneHref}>{businessDetails.phone}</a>
+              <a href={businessDetails.emailHref}>{businessDetails.email}</a>
+              <p>{businessDetails.address}</p>
+              <p>Service area: {businessDetails.serviceArea} project support</p>
             </div>
           </div>
         </div>
@@ -810,7 +819,7 @@ export default function HomePage() {
         <a href="#contact">
           <Mail size={15} /> Get Quote
         </a>
-        <a href="tel:+919876543210">
+        <a href={businessDetails.phoneHref}>
           <Phone size={15} /> Call Now
         </a>
       </div>

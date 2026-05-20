@@ -8,3 +8,5 @@ build
 !.env.example
 .chrome-profile-*/
 .edge-profile-*/
+
+.vercel
