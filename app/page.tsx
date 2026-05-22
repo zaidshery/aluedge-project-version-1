@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -6,25 +7,22 @@ import {
   Building2,
   CalendarDays,
   CheckCircle2,
-  ChevronDown,
   Globe2,
   Home,
   Layers,
   Leaf,
-  Mail,
-  Menu,
-  MapPin,
-  Palette,
-  Phone,
-  Search,
   Shield,
   ShieldCheck,
   Sun,
   Users,
   Volume2,
   Wrench,
+  Palette,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+import Button from "../components/Button";
+import { businessDetails } from "../components/businessDetails";
 
 type IconCard = {
   title: string;
@@ -35,6 +33,7 @@ type IconCard = {
 type SolutionCard = IconCard & {
   image: string;
   features: string[];
+  href: string;
 };
 
 type StatCard = {
@@ -59,53 +58,6 @@ type IndustrySegment = {
   systems: string[];
 };
 
-type NavItem = {
-  label: string;
-  href: string;
-  children?: {
-    label: string;
-    href: string;
-    text: string;
-  }[];
-};
-
-const businessDetails = {
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  email: "info@aluedge.in",
-  emailHref: "mailto:info@aluedge.in",
-  establishedYear: "2009",
-  projectsDelivered: "200+",
-  serviceArea: "Pan-India",
-  address: "201, Skyline Tower, Financial District, Hyderabad, Telangana - 500081",
-} as const;
-
-const navigation: NavItem[] = [
-  { label: "Home", href: "/" },
-  {
-    label: "Products & Services",
-    href: "#solutions",
-    children: [
-      { label: "Windows & Doors", href: "#solutions", text: "Premium aluminium and uPVC systems" },
-      { label: "Facade & Glazing", href: "#solutions", text: "Architectural glass and facade solutions" },
-      { label: "Cladding & Ceilings", href: "#solutions", text: "Durable finishes for modern envelopes" },
-      { label: "Railing & Decking", href: "#solutions", text: "Refined safety details for every project" },
-    ],
-  },
-  { label: "Projects", href: "#projects" },
-  { label: "About Us", href: "#why" },
-  {
-    label: "Resources",
-    href: "#resources",
-    children: [
-      { label: "Case Studies", href: "#projects", text: "Installed work across residential and commercial sites" },
-      { label: "Material Guidance", href: "#resources", text: "Finish, performance and specification support" },
-      { label: "Architect Support", href: "#contact", text: "Consultation for drawings, budgets and timelines" },
-    ],
-  },
-  { label: "Contact", href: "#contact" },
-];
-
 const featureStrip: IconCard[] = [
   { title: "Precision Engineered", text: "For Perfect Fit", Icon: Award },
   { title: "Thermal Performance", text: "Energy Efficient", Icon: Sun },
@@ -116,46 +68,60 @@ const featureStrip: IconCard[] = [
 
 const solutions: SolutionCard[] = [
   {
-    title: "Windows & Doors",
-    text: "Thermally efficient aluminium and uPVC openings engineered for comfort, security, and long-term performance.",
-    Icon: Home,
-    image: "/images/optimized/aluedge-solution-windows-820.webp",
-    features: ["Aluminium / uPVC", "Thermal sealing"],
-  },
-  {
-    title: "Facade & Glazing",
-    text: "Curtain wall, structural glazing, and spider glazing systems shaped for high-performing building envelopes.",
+    title: "Façade Solutions",
+    text: "Engineered high-performance curtain walls, structural glazing, and architectural building envelopes designed for modern high-rises.",
     Icon: Building2,
     image: "/images/optimized/aluedge-solution-facade-820.webp",
-    features: ["Curtain wall", "Spider glazing"],
+    features: ["Curtain Walls", "High-Rise Envelopes"],
+    href: "/products",
   },
   {
-    title: "Cladding Solutions",
-    text: "ACP, HPL, wet, and dry cladding packages with refined finishes and dependable site coordination.",
+    title: "uPVC Doors & Windows",
+    text: "Advanced soundproof, thermal-insulated, and highly energy-efficient designs that deliver perfect quiet and comfort.",
+    Icon: Home,
+    image: "/images/optimized/aluedge-solution-windows-820.webp",
+    features: ["Soundproof Seal", "Energy Efficient"],
+    href: "/products",
+  },
+  {
+    title: "Aluminium Doors & Windows",
+    text: "Premium sliding systems, casements, and sliding-folding doors built with structural elegance and high-grade finishes.",
+    Icon: Home,
+    image: "/images/optimized/aluedge-project-residence-820.webp",
+    features: ["Sliding & Folding", "Premium Finish"],
+    href: "/products",
+  },
+  {
+    title: "ACP & HPL Cladding",
+    text: "Lightweight, weather-resistant Aluminium Composite Panel and High-Pressure Laminate cladding systems.",
     Icon: Layers,
     image: "/images/optimized/aluedge-solution-cladding-820.webp",
-    features: ["ACP / HPL", "Wet & dry systems"],
+    features: ["ACP Cladding", "HPL Panels"],
+    href: "/products",
   },
   {
-    title: "Railing & Decking",
-    text: "Elegant railing and decking details that balance safety, durability, and architectural intent.",
-    Icon: Wrench,
-    image: "/images/optimized/aluedge-solution-railing-820.webp",
-    features: ["Balustrades", "Exterior durability"],
+    title: "Structural Glazing",
+    text: "Seamless glass exteriors combining minimalist aesthetic sightlines with engineering precision and wind-load resistance.",
+    Icon: Building2,
+    image: "/images/optimized/aluedge-project-office-820.webp",
+    features: ["Seamless Sightlines", "Wind-Load Deflection"],
+    href: "/products",
   },
   {
     title: "Ceiling Systems",
-    text: "Functional ceiling systems for hospitality, commercial, and institutional interiors.",
+    text: "High-finish metal linear ceilings, grid tile ceilings, and custom-engineered architectural false ceiling profiles.",
     Icon: Layers,
     image: "/images/optimized/aluedge-solution-ceiling-820.webp",
-    features: ["Linear ceilings", "Clean services"],
+    features: ["Metal Ceilings", "Grid & False Ceilings"],
+    href: "/products",
   },
   {
-    title: "Color & Materials",
-    text: "Finish guidance for profiles, glass, panels, and textures that align with the project palette.",
-    Icon: Palette,
-    image: "/images/optimized/aluedge-solution-materials-820.webp",
-    features: ["Finish matching", "Material guidance"],
+    title: "Glass Railings & Partitions",
+    text: "Premium balcony glass balustrades, staircase glass, office partitions, and heavy-duty frame-free entries.",
+    Icon: Wrench,
+    image: "/images/optimized/aluedge-solution-railing-820.webp",
+    features: ["Glass Railings", "Office Partitions"],
+    href: "/products",
   },
 ];
 
@@ -203,34 +169,29 @@ const stats: StatCard[] = [
 
 const reasons: IconCard[] = [
   {
-    title: "Precision Engineering",
-    text: "Profiles, glass, hardware, and details are planned for fit, finish, and long-term performance.",
+    title: "Quality Workmanship",
+    text: "We use high-grade, premium materials and advanced technology to deliver superior finishing and long-lasting durability.",
     Icon: Award,
   },
   {
-    title: "Site Measurement & Consultation",
-    text: "Early guidance helps align drawings, site conditions, budgets, and execution timelines.",
+    title: "Modern Design Approach",
+    text: "Simple, elegant, functional, and future-ready customized solutions tailored to match your project's unique needs.",
+    Icon: Palette,
+  },
+  {
+    title: "Timely Project Delivery",
+    text: "Strict adherence to schedules ensures your project finishes on time, every time.",
+    Icon: CalendarDays,
+  },
+  {
+    title: "Experienced & Trained Team",
+    text: "Highly skilled professionals providing expert engineering, precise fabrication, and meticulous installation.",
     Icon: Users,
   },
   {
-    title: "Durable Material Systems",
-    text: "Aluminium, uPVC, glazing, cladding, and railing systems are selected for weather exposure and use.",
+    title: "Transparent Pricing",
+    text: "Clear, honest, and competitive cost estimates with absolutely no hidden fees.",
     Icon: ShieldCheck,
-  },
-  {
-    title: "Weather + Acoustic Performance",
-    text: "System recommendations consider sealing, comfort, energy efficiency, and everyday noise control.",
-    Icon: Volume2,
-  },
-  {
-    title: "Clean Installation",
-    text: "Coordinated installation details help protect finishes and keep site execution predictable.",
-    Icon: Wrench,
-  },
-  {
-    title: "After-Sales Support",
-    text: "Project handover is supported by serviceability, maintenance guidance, and responsive coordination.",
-    Icon: CheckCircle2,
   },
 ];
 
@@ -270,187 +231,36 @@ const trustedLogos = [
   "Project Consultants",
 ];
 
-function Button({
-  children,
-  href = "#contact",
-  variant = "primary",
-}: {
-  children: React.ReactNode;
-  href?: string;
-  variant?: "primary" | "secondary" | "outline";
-}) {
-  return (
-    <a className={`button button--${variant}`} href={href}>
-      <span>{children}</span>
-      <ArrowRight size={17} strokeWidth={2.3} />
-    </a>
-  );
-}
-
-function BrandMark({ priority = false }: { priority?: boolean }) {
-  return (
-    <Link className="brand" href="/" aria-label="AluEdge home">
-      <Image
-        alt="AluEdge Fenestration Solutions"
-        className="brand__logo"
-        height={354}
-        priority={priority}
-            src="/images/optimized/aluedge-logo-820.png"
-        width={1322}
-      />
-    </Link>
-  );
-}
-
 export default function HomePage() {
   return (
-    <main>
-      <div className="topbar">
-        <div className="container topbar__inner">
-          <p>Serving Architects, Builders & Developers Across India</p>
-          <div className="topbar__contact">
-            <span>
-              <Phone size={15} /> {businessDetails.phone}
-            </span>
-            <span>
-              <Mail size={15} /> {businessDetails.email}
-            </span>
-            <span>
-              <MapPin size={15} /> {businessDetails.serviceArea} Service
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <header className="site-header">
-        <div className="container site-header__inner">
-          <BrandMark priority />
-          <nav aria-label="Primary navigation" className="primary-nav">
-            {navigation.map((item) =>
-              item.children ? (
-                <details className="nav-dropdown" key={item.label}>
-                  <summary className="primary-nav__link">
-                    <span>{item.label}</span>
-                    <ChevronDown size={14} strokeWidth={2.4} />
-                  </summary>
-                  <div className="nav-dropdown__panel">
-                    <a className="nav-dropdown__overview" href={item.href}>
-                      <span>Explore {item.label}</span>
-                      <ArrowRight size={15} strokeWidth={2.3} />
-                    </a>
-                    {item.children.map((child) => (
-                      <a className="nav-dropdown__item" href={child.href} key={child.label}>
-                        <span>{child.label}</span>
-                        <small>{child.text}</small>
-                      </a>
-                    ))}
-                  </div>
-                </details>
-              ) : item.href.startsWith("/") ? (
-                <Link
-                  className={`primary-nav__link${item.label === "Home" ? " active" : ""}`}
-                  href={item.href}
-                  key={item.label}
-                >
-                  <span>{item.label}</span>
-                </Link>
-              ) : (
-                <a
-                  className={`primary-nav__link${item.label === "Home" ? " active" : ""}`}
-                  href={item.href}
-                  key={item.label}
-                >
-                  <span>{item.label}</span>
-                </a>
-              ),
-            )}
-          </nav>
-          <div className="site-header__actions">
-            <button aria-label="Search" className="icon-button icon-button--search" type="button">
-              <Search size={21} />
-            </button>
-            <details className="mobile-menu">
-              <summary aria-label="Open navigation menu" className="icon-button">
-                <Menu size={23} strokeWidth={2.2} />
-              </summary>
-              <div className="mobile-menu__panel">
-                <div className="mobile-menu__links">
-                  {navigation.map((item) => (
-                    <div className="mobile-menu__group" key={item.label}>
-                      {item.href.startsWith("/") ? (
-                        <Link
-                          className={`mobile-menu__link${item.label === "Home" ? " active" : ""}`}
-                          href={item.href}
-                        >
-                          <span>{item.label}</span>
-                          {item.children && <ChevronDown size={14} strokeWidth={2.4} />}
-                        </Link>
-                      ) : (
-                        <a
-                          className={`mobile-menu__link${item.label === "Home" ? " active" : ""}`}
-                          href={item.href}
-                        >
-                          <span>{item.label}</span>
-                          {item.children && <ChevronDown size={14} strokeWidth={2.4} />}
-                        </a>
-                      )}
-                      {item.children && (
-                        <div className="mobile-menu__children">
-                          {item.children.map((child) => (
-                            <a className="mobile-menu__child" href={child.href} key={child.label}>
-                              {child.label}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="mobile-menu__actions">
-                  <a className="mobile-menu__cta mobile-menu__cta--primary" href="#contact">
-                    Get Free Quote <ArrowRight size={15} />
-                  </a>
-                  <a className="mobile-menu__cta mobile-menu__cta--secondary" href="#contact">
-                    Book Consultation <ArrowRight size={15} />
-                  </a>
-                </div>
-              </div>
-            </details>
-            <Button>Get Free Quote</Button>
-            <Button variant="outline">Book Consultation</Button>
-          </div>
-        </div>
-      </header>
-
+    <>
       <section className="hero">
         <div className="container hero__inner">
           <div className="hero__content">
-            <p className="eyebrow">Engineered to perform. Designed to inspire.</p>
+            <p className="eyebrow">Precision | Elegance | Innovation</p>
             <h1>
               <span className="hero__title-desktop">
-                <span className="hero__title-main">Premium Fenestration,</span>
-                <span>Facade &amp; Glazing</span>
-                <span className="hero__title-accent">Solutions</span>
+                <span className="hero__title-main">Transforming Spaces</span>
+                <span>with Strength &amp;</span>
+                <span className="hero__title-accent">Style</span>
               </span>
               <span className="hero__title-mobile">
-                Premium Fenestration, <span>Facade &amp; Glazing Solutions</span>
+                Transforming Spaces <span>with Strength &amp; <span className="hero__title-accent">Style</span></span>
               </span>
             </h1>
             <p className="hero__lead hero__lead-desktop">
-              Advanced aluminium, uPVC windows and doors, facades, cladding, and glazing
-              systems crafted for modern architecture.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural façade systems, premium aluminium, and uPVC windows and doors.
             </p>
             <p className="hero__lead hero__lead-mobile">
-              Advanced aluminium, uPVC windows &amp; doors, facades, cladding, and glazing
-              systems crafted for modern architecture.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural façade systems, premium aluminium, and uPVC windows and doors.
             </p>
             <div className="hero__actions">
-              <Button href="#contact" variant="primary">Get Free Quote</Button>
-              <Button href="#contact" variant="outline">Book Consultation</Button>
+              <Button href="#solutions">Explore Our Solutions</Button>
+              <Button href="/contact" variant="outline">Contact Our Experts</Button>
             </div>
-            <a className="hero__contact-link" href="#contact">
+            <Link className="hero__contact-link" href="/contact">
               For project enquiries, connect with our team <ArrowRight size={15} />
-            </a>
+            </Link>
           </div>
           <div className="hero__media">
             <Image
@@ -468,6 +278,23 @@ export default function HomePage() {
               priority
               sizes="(max-width: 760px) 100vw, 820px"
               src="/images/optimized/aluedge-hero-mobile-final.webp"
+            />
+            <div
+              style={{ display: "contents" }}
+              dangerouslySetInnerHTML={{
+                __html: `
+                  <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    preload="auto"
+                    class="hero__video"
+                  >
+                    <source src="/aluedge-hero-video.mp4" type="video/mp4" />
+                  </video>
+                `
+              }}
             />
             <div className="hero__floating-card">
               <span>{businessDetails.serviceArea} Project Execution</span>
@@ -528,7 +355,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="solutions__grid">
-          {solutions.map(({ title, text, Icon, image, features }) => (
+          {solutions.map(({ title, text, Icon, image, features, href }) => (
             <article className="solution-card" key={title}>
               <div className="solution-card__image">
                 <Image
@@ -551,15 +378,15 @@ export default function HomePage() {
                   ))}
                 </div>
               </div>
-              <a className="solution-card__action" href="#contact" aria-label={`Discuss ${title} with AluEdge`}>
+              <Link className="solution-card__action" href={href} aria-label={`Discuss ${title} with AluEdge`}>
                 Explore solution <ArrowRight size={16} strokeWidth={2.2} />
-              </a>
+              </Link>
             </article>
           ))}
         </div>
         <div className="solutions__actions">
-          <Button href="#contact">Discuss Your Requirement</Button>
-          <Button href="#projects" variant="secondary">
+          <Button href="/contact">Discuss Your Requirement</Button>
+          <Button href="/projects" variant="secondary">
             View Projects
           </Button>
         </div>
@@ -573,9 +400,9 @@ export default function HomePage() {
             A closer look at AluEdge project applications across residential, commercial,
             hospitality, and infrastructure environments.
           </p>
-          <a href="#contact">
+          <Link href="/contact">
             Start Similar Project <ArrowRight size={17} />
-          </a>
+          </Link>
         </div>
         <div className="projects__grid">
           {projects.map((project) => (
@@ -605,18 +432,18 @@ export default function HomePage() {
                     <dd>{project.location}</dd>
                   </div>
                 </dl>
-                <a href="#contact" aria-label={`Start a project similar to ${project.title}`}>
+                <Link href="/contact" aria-label={`Start a project similar to ${project.title}`}>
                   Start similar project <ArrowRight size={15} strokeWidth={2.2} />
-                </a>
+                </Link>
               </div>
             </article>
           ))}
         </div>
         <div className="projects__actions">
-          <Button href="#projects" variant="secondary">
+          <Button href="/projects" variant="secondary">
             View Project Gallery
           </Button>
-          <Button href="#contact">Start Similar Project</Button>
+          <Button href="/contact">Start Similar Project</Button>
         </div>
       </section>
 
@@ -653,7 +480,7 @@ export default function HomePage() {
             Architects, builders, developers, and homeowners choose AluEdge for system guidance,
             site discipline, and architectural finishes that are made to last.
           </p>
-          <Button href="#contact" variant="secondary">
+          <Button href="/contact" variant="secondary">
             Talk to an Expert
           </Button>
         </div>
@@ -681,9 +508,9 @@ export default function HomePage() {
               From private residences to public infrastructure, each segment gets systems matched
               to usage, climate, finish expectations, and project scale.
             </p>
-            <a href="#solutions">
+            <Link href="/products">
               Explore Applications <ArrowRight size={17} />
-            </a>
+            </Link>
           </div>
           <div className="industries__grid">
             {industries.map((industry) => (
@@ -713,10 +540,20 @@ export default function HomePage() {
       <section className="trusted container" id="resources" aria-label="Trusted project teams">
         <p className="eyebrow">Trusted by teams across architecture, construction, and interiors</p>
         <h2>Built for project teams that need reliable execution.</h2>
-        <div>
-          {trustedLogos.map((logo) => (
-            <span key={logo}>{logo}</span>
-          ))}
+        <div className="trusted__viewport">
+          <div className="trusted__track">
+            {trustedLogos.map((logo) => (
+              <span key={logo} className="trusted__item">
+                {logo}
+              </span>
+            ))}
+            {/* Duplicated for infinite slow-motion marquee scrolling on mobile */}
+            {trustedLogos.map((logo) => (
+              <span key={`${logo}-dup`} className="trusted__item trusted__item--dup" aria-hidden="true">
+                {logo}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -748,81 +585,12 @@ export default function HomePage() {
           </ul>
         </div>
         <div className="cta__actions">
-          <Button href="#contact">Get Free Quote</Button>
-          <Button href="#solutions" variant="secondary">
+          <Button href="/contact">Get Free Quote</Button>
+          <Button href="/products" variant="secondary">
             Explore Solutions
           </Button>
         </div>
       </section>
-
-      <footer className="footer">
-        <div className="container footer__inner">
-          <div className="footer__brand">
-            <BrandMark />
-            <p>
-              Premium aluminium, uPVC, facade and glazing solutions for modern architecture across
-              India.
-            </p>
-            <div className="footer__contact-actions" aria-label="Primary contact methods">
-              <a href={businessDetails.phoneHref}>
-                <Phone size={15} /> Call
-              </a>
-              <a href={businessDetails.emailHref}>
-                <Mail size={15} /> Email
-              </a>
-            </div>
-          </div>
-          <div className="footer__links">
-            <div>
-              <h2>Quick Links</h2>
-              <Link href="/">Home</Link>
-              <a href="#solutions">Products & Services</a>
-              <a href="#projects">Projects</a>
-              <a href="#why">About Us</a>
-              <a href="#resources">Resources</a>
-            </div>
-            <div>
-              <h2>Our Solutions</h2>
-              <a href="#solutions">Windows & Doors</a>
-              <a href="#solutions">Facade & Glazing</a>
-              <a href="#solutions">Cladding Solutions</a>
-              <a href="#solutions">Ceiling Systems</a>
-              <a href="#solutions">Color & Materials</a>
-            </div>
-            <div>
-              <h2>Resources</h2>
-              <a href="#projects">Case Studies</a>
-              <a href="#resources">Material Guidance</a>
-              <a href="#resources">Applications</a>
-              <a href="#contact">Architect Support</a>
-              <a href="#contact">Project Consultation</a>
-            </div>
-            <div>
-              <h2>Contact Us</h2>
-              <a href={businessDetails.phoneHref}>{businessDetails.phone}</a>
-              <a href={businessDetails.emailHref}>{businessDetails.email}</a>
-              <p>{businessDetails.address}</p>
-              <p>Service area: {businessDetails.serviceArea} project support</p>
-            </div>
-          </div>
-        </div>
-        <div className="container footer__bottom">
-          <p>&copy; 2026 AluEdge Fenestration Solutions. All rights reserved.</p>
-          <nav aria-label="Legal links">
-            <a href="#resources">Privacy Policy</a>
-            <a href="#resources">Terms & Conditions</a>
-          </nav>
-        </div>
-      </footer>
-
-      <div className="mobile-bottom-bar" aria-label="Quick contact actions">
-        <a href="#contact">
-          <Mail size={15} /> Get Quote
-        </a>
-        <a href={businessDetails.phoneHref}>
-          <Phone size={15} /> Call Now
-        </a>
-      </div>
-    </main>
+    </>
   );
 }

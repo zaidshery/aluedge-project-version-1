@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import Layout from "../components/Layout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,7 +9,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
@@ -30,9 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
-        {children}
+      <body className={`${inter.variable} ${plusJakarta.variable}`} suppressHydrationWarning>
+        <Layout>{children}</Layout>
       </body>
     </html>
   );
 }
+
