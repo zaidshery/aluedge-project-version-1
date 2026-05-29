@@ -689,7 +689,7 @@ export default function HomePage() {
 
       <section className="trusted container" id="resources" aria-label="Trusted project teams">
         <p className="eyebrow">Trusted by teams across architecture, construction, and interiors</p>
-        <h2>Collaborating with India's Leading Professionals.</h2>
+        <h2>{"Collaborating with India's Leading Professionals."}</h2>
         <div className="trusted__viewport">
           <div className="trusted__track">
             {trustedLogos.map((logo) => (
