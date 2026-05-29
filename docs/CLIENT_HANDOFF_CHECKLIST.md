@@ -4,13 +4,13 @@ Use this checklist before presenting the homepage as final launch material.
 
 ## Business Details To Confirm
 
-- [ ] Phone number: `+91 98765 43210`
-- [ ] Phone link: `+919876543210`
-- [ ] Email: `info@aluedge.in`
+- [ ] Phone number: `+91 9826345598`
+- [ ] Phone link: `+919826345598`
+- [ ] Email: `aluedge.co@gmail.com`
 - [ ] Established year: `2009`
 - [ ] Project count claim: `200+`
 - [ ] Service area claim: `Pan-India`
-- [ ] Address: `201, Skyline Tower, Financial District, Hyderabad, Telangana - 500081`
+- [ ] Address: `3-FA, Scheme No. 94, Near Pipliyahana Square, Ring Road, Indore-452016, Madhya Pradesh, INDIA`
 
 ## Image Approval
 

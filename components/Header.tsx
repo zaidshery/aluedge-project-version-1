@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import BrandMark from "./BrandMark";
 import Button from "./Button";
+import SocialLinks from "./SocialLinks";
 
 type NavItem = {
   label: string;
@@ -137,12 +138,8 @@ export default function Header() {
                   ))}
                 </div>
                 <div className="mobile-menu__actions">
-                  <Link className="mobile-menu__cta mobile-menu__cta--primary" href="/contact">
-                    Get Free Quote <ArrowRight size={15} />
-                  </Link>
-                  <Link className="mobile-menu__cta mobile-menu__cta--secondary" href="/contact">
-                    Book Consultation <ArrowRight size={15} />
-                  </Link>
+                  <span className="mobile-menu__social-label">Connect with us</span>
+                  <SocialLinks className="mobile-menu__social" linkClassName="mobile-menu__social-link" />
                 </div>
               </div>
             )}

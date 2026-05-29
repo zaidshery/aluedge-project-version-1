@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { ShieldCheck, Award, FlameKindling, Info } from "lucide-react";
 import Button from "../../../components/Button";
+import ContentCard from "../../../components/ContentCard";
+import PageHero from "../../../components/PageHero";
+import SectionHeader from "../../../components/SectionHeader";
 
 const claddingOptions = [
   {
@@ -40,76 +43,49 @@ export const metadata = {
 export default function CladdingCeilingsPage() {
   return (
     <>
-      {/* Product Hero */}
-      <section className="bg-gradient-to-br from-[#071526] via-[#0d2536] to-[#102a3a] text-white py-16 lg:py-24 border-b-4 border-bronze relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
-        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center">
-          <div>
-            <span className="font-display tracking-widest text-xs font-black uppercase text-bronze">CLADDING & CEILINGS</span>
-            <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight mt-4 mb-6 leading-tight text-white">
-              Premium Metal Cladding &amp; Ceilings
-            </h1>
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Durable, fire-certified architectural exterior panel systems and suspended interior metal ceilings planned for high-traffic environments and precise site coordination.
-            </p>
-            <div className="mt-8">
-              <Button href="/contact">Request Drawing Technical Check</Button>
-            </div>
-          </div>
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-surface-strong">
-            <Image
-              alt="Architectural metallic cladding on office envelope"
-              fill
-              sizes="(max-width: 1024px) 100vw, 500px"
-              src="/images/optimized/aluedge-solution-cladding-820.webp"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Cladding & Ceilings"
+        title="Premium Metal Cladding & Ceilings"
+        description="Durable, fire-certified architectural exterior panel systems and suspended interior metal ceilings planned for high-traffic environments and precise site coordination."
+        actions={<Button href="/contact">Request Drawing Technical Check</Button>}
+        media={(
+          <Image
+            alt="Architectural metallic cladding on office envelope"
+            fill
+            sizes="(max-width: 1024px) 100vw, 500px"
+            src="/images/optimized/aluedge-solution-cladding-820.webp"
+            priority
+          />
+        )}
+      />
 
-      {/* Cladding Options breakdown */}
-      <section className="container py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start">
+      <section className="container visual-section grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-start">
         <div className="space-y-6">
-          <div>
-            <span className="font-display tracking-widest text-xs font-black uppercase text-green">EXTERIOR CLADDING SYSTEMS</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">
-              Durable Exterior Finishes
-            </h2>
-            <p className="text-muted text-sm sm:text-base leading-relaxed mt-3">
-              Exterior cladding acts as a protective shield against weather, wind, and heat. We fabricate cladding packages with custom sub-structures, ensuring adequate ventilation and thermal movement joints.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Exterior cladding systems"
+            title="Durable Exterior Finishes"
+            description="Exterior cladding acts as a protective shield against weather, wind, and heat. We fabricate cladding packages with custom sub-structures, ensuring adequate ventilation and thermal movement joints."
+            className="mb-8"
+          />
 
-          <div className="space-y-6 pt-4">
+          <div className="space-y-5">
             {claddingOptions.map((c, idx) => (
-              <div 
-                key={idx} 
-                className="bg-surface-strong border border-line rounded-2xl p-6 sm:p-8 space-y-4 shadow-[0_4px_12px_rgba(7,21,38,0.01)] hover:shadow-md transition-all duration-300"
-              >
-                <h3 className="font-display text-lg text-ink font-semibold tracking-tight">{c.name}</h3>
-                <p className="text-muted text-sm leading-relaxed">{c.desc}</p>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {c.specs.map((spec, sIdx) => (
-                    <span 
-                      key={sIdx} 
-                      className="text-[10px] font-black tracking-wider uppercase bg-[#f2faf5] border border-green/10 text-green rounded-full px-3.5 py-1"
-                    >
-                      {spec}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <ContentCard
+                key={c.name}
+                eyebrow={`Cladding option 0${idx + 1}`}
+                title={c.name}
+                description={c.desc}
+                tags={c.specs}
+              />
             ))}
           </div>
         </div>
 
         {/* Ceiling Systems and Technical Standards Card */}
         <div className="space-y-6 w-full">
-          <div className="bg-paper border border-line rounded-2xl p-6 sm:p-8 shadow-[0_8px_30px_rgba(7,21,38,0.015)] space-y-6">
+          <div className="bg-paper border border-line rounded-lg p-6 sm:p-8 shadow-[0_8px_30px_rgba(7,21,38,0.015)] space-y-6">
             <div>
-              <span className="font-display tracking-widest text-xs font-black uppercase text-green">INTERIOR SYSTEMS</span>
+              <p className="section-header__eyebrow">Interior systems</p>
               <h3 className="font-display text-xl text-ink font-semibold mt-2">Metal Ceiling Systems</h3>
             </div>
             <p className="text-muted text-sm leading-relaxed">
@@ -127,7 +103,7 @@ export default function CladdingCeilingsPage() {
           </div>
 
           {/* Fire Safety Highlight Card */}
-          <div className="bg-gradient-to-br from-[#7a1515] via-[#5a1010] to-[#3a0b0b] text-white p-6 sm:p-8 rounded-2xl shadow-xl flex gap-5 items-start border border-red-500/10">
+          <div className="bg-gradient-to-br from-[#7a1515] via-[#5a1010] to-[#3a0b0b] text-white p-6 sm:p-8 rounded-lg shadow-xl flex gap-5 items-start border border-red-500/10">
             <FlameKindling size={36} className="text-bronze flex-shrink-0 mt-1" />
             <div className="space-y-1.5">
               <strong className="block text-sm sm:text-base text-white font-bold">FR Class A2 Fire Certification</strong>
@@ -141,29 +117,11 @@ export default function CladdingCeilingsPage() {
       </section>
 
       {/* Handover Quality highlights */}
-      <section className="bg-paper border-t border-b border-line py-16 lg:py-20">
+      <section className="visual-section visual-section--paper">
         <div className="container grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          <div className="bg-white border border-line rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm hover:shadow-md transition-shadow">
-            <Award size={32} className="text-green" />
-            <strong className="text-sm sm:text-base text-ink block font-bold">AkzoNobel Coatings</strong>
-            <span className="text-xs sm:text-sm text-muted block leading-relaxed">
-              PVDF finish paints that survive intensive salt spray tests and extreme tropical sun exposures.
-            </span>
-          </div>
-          <div className="bg-white border border-line rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm hover:shadow-md transition-shadow">
-            <ShieldCheck size={32} className="text-green" />
-            <strong className="text-sm sm:text-base text-ink block font-bold">EPDM Weather Gaskets</strong>
-            <span className="text-xs sm:text-sm text-muted block leading-relaxed">
-              Superior weathering joints that maintain high elasticity over decades, avoiding air and water leakage.
-            </span>
-          </div>
-          <div className="bg-white border border-line rounded-2xl p-6 sm:p-8 space-y-4 shadow-sm hover:shadow-md transition-shadow">
-            <Info size={32} className="text-green" />
-            <strong className="text-sm sm:text-base text-ink block font-bold">Sub-structure framing</strong>
-            <span className="text-xs sm:text-sm text-muted block leading-relaxed">
-              Heavy-gauge galvanized steel or aluminium frame grids calculated strictly to resist deflection under high wind loads.
-            </span>
-          </div>
+          <ContentCard title="AkzoNobel Coatings" description="PVDF finish paints that survive intensive salt spray tests and extreme tropical sun exposures." icon={<Award size={22} />} />
+          <ContentCard title="EPDM Weather Gaskets" description="Superior weathering joints that maintain high elasticity over decades, avoiding air and water leakage." icon={<ShieldCheck size={22} />} />
+          <ContentCard title="Sub-structure framing" description="Heavy-gauge galvanized steel or aluminium frame grids calculated strictly to resist deflection under high wind loads." icon={<Info size={22} />} />
         </div>
       </section>
     </>

@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Phone, Mail } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import BrandMark from "./BrandMark";
 import { businessDetails } from "./businessDetails";
+import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
   return (
@@ -14,16 +15,12 @@ export default function Footer() {
             Premium aluminium, uPVC, facade and glazing solutions for modern architecture across
             India.
           </p>
-          <div className="footer__contact-actions" aria-label="Primary contact methods">
-            <a href={businessDetails.phoneHref}>
-              <Phone size={15} /> Call
-            </a>
-            <a href={businessDetails.emailHref}>
-              <Mail size={15} /> Email
-            </a>
+          <div className="footer__social-group">
+            <span className="footer__social-label">Connect with us</span>
+            <SocialLinks className="footer__social" linkClassName="footer__social-link" />
           </div>
         </div>
-        <div className="footer__links">
+        <div className="footer__links" aria-label="Footer navigation">
           <div>
             <h2>Quick Links</h2>
             <Link href="/">Home</Link>
@@ -48,14 +45,35 @@ export default function Footer() {
             <Link href="/contact">Architect Support</Link>
             <Link href="/contact">Project Consultation</Link>
           </div>
-          <div>
-            <h2>Contact Us</h2>
-            <a href={businessDetails.phoneHref}>{businessDetails.phone}</a>
-            {businessDetails.emails.map((email) => (
-              <a key={email} href={`mailto:${email}`} className="block hover:underline">{email}</a>
-            ))}
-            <p className="mt-2 text-xs leading-relaxed opacity-80">{businessDetails.address}</p>
-            <p className="text-xs opacity-80">Service area: {businessDetails.serviceArea} project support</p>
+        </div>
+        <div className="footer__contact">
+          <h2>Contact Us</h2>
+          <div className="footer__contact-list">
+            <a className="footer__contact-row footer__contact-row--phone" href={businessDetails.phoneHref}>
+              <span className="footer__contact-icon" aria-hidden="true">
+                <Phone size={19} strokeWidth={2.25} />
+              </span>
+              <span className="footer__contact-copy">
+                <strong>{businessDetails.phone}</strong>
+              </span>
+            </a>
+            <div className="footer__contact-row">
+              <span className="footer__contact-icon" aria-hidden="true">
+                <MapPin size={22} strokeWidth={2.3} />
+              </span>
+              <div className="footer__contact-copy">
+                <strong>Indore Experience Centre</strong>
+                <p>{businessDetails.address}</p>
+              </div>
+            </div>
+            <a className="footer__contact-row footer__contact-row--email" href={businessDetails.emailHref}>
+              <span className="footer__contact-icon" aria-hidden="true">
+                <Mail size={20} strokeWidth={2.25} />
+              </span>
+              <span className="footer__contact-copy">
+                <strong>{businessDetails.email}</strong>
+              </span>
+            </a>
           </div>
         </div>
       </div>

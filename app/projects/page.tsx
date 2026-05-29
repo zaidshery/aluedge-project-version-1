@@ -2,8 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { X, CheckCircle, ArrowRight } from "lucide-react";
+import { X, CheckCircle } from "lucide-react";
 import Button from "../../components/Button";
+import ContentCard from "../../components/ContentCard";
+import PageHero from "../../components/PageHero";
+import SectionHeader from "../../components/SectionHeader";
 
 type Project = {
   title: string;
@@ -376,29 +379,21 @@ export default function ProjectsPage() {
 
   return (
     <>
-      {/* Projects Hero */}
-      <section className="bg-gradient-to-br from-[#061928] via-[#0c2b3f] to-[#04121d] text-white py-16 lg:py-24 border-b-4 border-bronze relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
-        <div className="container relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-          <div>
-            <span className="font-display tracking-widest text-xs font-black uppercase text-bronze">ALUEDGE PORTFOLIO</span>
-            <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight mt-4 mb-6 leading-tight text-white">
-              Our Architectural Landmarks
-            </h1>
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Explore a curated selection of residential envelopes, high-performance office facades, and institutional glaze packages delivered across India.
-            </p>
-          </div>
-          <div className="flex-shrink-0">
-            <Button href="/contact">Start Similar Project</Button>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="AluEdge Portfolio"
+        title="Our Architectural Landmarks"
+        description="Explore a curated selection of residential envelopes, high-performance office facades, and institutional glaze packages delivered across India."
+        actions={<Button href="/contact">Start Similar Project</Button>}
+      />
 
-      {/* Filter and Grid Area */}
-      <section className="container py-16 lg:py-24">
+      <section className="container visual-section">
+        <SectionHeader
+          eyebrow="Delivered work"
+          title="Project references with technical depth"
+          description="Filter by segment, then open any project to review its system, location, performance notes, and execution highlights."
+          align="center"
+        />
         
-        {/* Category Filters */}
         <div className="flex flex-wrap gap-2.5 justify-center mb-12 border-b border-line pb-8">
           {["All", "Residential", "Commercial", "Hospitality", "Infrastructure"].map((cat) => {
             const isSelected = selectedFilter === cat;
@@ -419,57 +414,21 @@ export default function ProjectsPage() {
           })}
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {filteredProjects.map((project, idx) => (
-            <article 
+            <ContentCard
               key={idx} 
-              className="bg-white border border-line rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(7,21,38,0.015)] hover:shadow-[0_20px_40px_rgba(7,21,38,0.05)] transition-all duration-500 group cursor-pointer flex flex-col h-full"
+              eyebrow={project.category}
+              title={project.title}
+              description={project.text}
+              image={project.image}
+              imageAlt={project.title}
+              meta={[
+                { label: "System", value: project.system },
+                { label: "Location", value: project.location },
+              ]}
               onClick={() => setActiveProject(project)}
-            >
-              {/* Image Section */}
-              <div className="relative h-64 sm:h-72 overflow-hidden w-full bg-surface-strong">
-                <Image
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 600px"
-                  src={project.image}
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  priority={idx < 2}
-                />
-                <span className="absolute top-4 left-4 z-10 bg-white/95 backdrop-blur-md border border-line rounded-full px-3.5 py-1 text-[10px] font-black text-ink uppercase tracking-widest shadow-sm">
-                  {project.category}
-                </span>
-              </div>
-
-              {/* Body Content */}
-              <div className="p-6 sm:p-8 flex flex-col flex-1 justify-between">
-                <div>
-                  <div className="flex justify-between items-start gap-4 mb-3">
-                    <h3 className="font-display text-xl sm:text-2xl text-ink font-semibold tracking-tight group-hover:text-green transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                    <span className="text-[10px] font-black tracking-widest text-green uppercase inline-flex items-center gap-1 mt-1.5 flex-shrink-0 group-hover:translate-x-1 transition-transform duration-300">
-                      SPECS <ArrowRight size={10} />
-                    </span>
-                  </div>
-                  <p className="text-muted text-sm leading-relaxed mb-6">
-                    {project.text}
-                  </p>
-                </div>
-                
-                <dl className="grid grid-cols-2 gap-4 border-t border-line pt-5 mt-auto text-xs">
-                  <div>
-                    <dt className="text-[10px] font-black tracking-wider text-muted uppercase mb-1">System</dt>
-                    <dd className="font-extrabold text-ink">{project.system}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-[10px] font-black tracking-wider text-muted uppercase mb-1">Location</dt>
-                    <dd className="font-extrabold text-ink">{project.location}</dd>
-                  </div>
-                </dl>
-              </div>
-            </article>
+            />
           ))}
         </div>
       </section>

@@ -1,12 +1,12 @@
 export const businessDetails = {
-  phone: "+91-8959155155",
-  phoneHref: "tel:+918959155155",
-  emails: ["sales.aluedge@gmail.com", "aluedge.co@gmail.com"],
-  email: "sales.aluedge@gmail.com",
-  emailHref: "mailto:sales.aluedge@gmail.com",
+  phone: "+91 9826345598",
+  phoneHref: "tel:+919826345598",
+  emails: ["aluedge.co@gmail.com"],
+  email: "aluedge.co@gmail.com",
+  emailHref: "mailto:aluedge.co@gmail.com",
   establishedYear: "2009",
   projectsDelivered: "200+",
   serviceArea: "Pan-India",
-  address: "58/1/1, Adinath Warehouse, Adinath Estate, Gram Nayta Mundla, A.B. Road Bypass, Indore, Madhya Pradesh – 452020",
+  address: "3-FA, Scheme No. 94, Near Pipliyahana Square, Ring Road, Indore-452016, Madhya Pradesh, INDIA",
   website: "www.aluedge.co",
 } as const;

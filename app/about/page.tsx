@@ -2,6 +2,10 @@ import React from "react";
 import Image from "next/image";
 import { Award, Compass, HeartHandshake, ShieldCheck } from "lucide-react";
 import Button from "../../components/Button";
+import ContentCard from "../../components/ContentCard";
+import CTASection from "../../components/CTASection";
+import PageHero from "../../components/PageHero";
+import SectionHeader from "../../components/SectionHeader";
 
 const values = [
   {
@@ -90,11 +94,23 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#061928] via-[#0d2536] to-[#04121d] text-white py-16 lg:py-24 border-b-4 border-bronze">
-        {/* Subtle decorative glow */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+      <PageHero
+        eyebrow="The AluEdge Story"
+        title="Redefining Modern Architecture Since 2009"
+        description="ALUEDGE, established in 2009, is a trusted pioneer in facade systems, aluminium, and uPVC windows and doors. We focus on delivering high-quality products that seamlessly combine modern design, engineering precision, strong durability, and smooth performance."
+        media={(
+          <Image
+            alt="Premium architectural glass facade details"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 600px"
+            src="/images/optimized/aluedge-hero-campus-1600.webp"
+          />
+        )}
+      />
+      {false && (
+      <section className="hidden">
+        <div>
           <div>
             <span className="font-display tracking-[0.2em] text-xs font-black uppercase text-bronze">THE ALUEDGE STORY</span>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight mt-4 mb-6 leading-[1.1] text-white">
@@ -111,7 +127,6 @@ export default function AboutPage() {
             <Image
               alt="Premium architectural glass facade details"
               fill
-              priority
               sizes="(max-width: 1024px) 100vw, 600px"
               src="/images/optimized/aluedge-hero-campus-1600.webp"
               className="object-cover transition-transform duration-700 hover:scale-105"
@@ -119,16 +134,17 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Core Stats Section */}
-      <section className="bg-paper border-b border-line py-10">
+      <section className="visual-section visual-section--paper !py-10">
         <div className="container grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
-          <div className="p-6 bg-white border border-line rounded-2xl shadow-sm">
+          <div className="p-6 bg-white border border-line rounded-lg shadow-sm">
             <span className="block font-display text-4xl sm:text-5xl font-extrabold text-green mb-2">200+</span>
             <strong className="block text-sm text-ink uppercase tracking-wider font-extrabold">Successfully Completed Projects</strong>
             <span className="text-xs text-muted mt-1 block">Across diverse sectors nationwide</span>
           </div>
-          <div className="p-6 bg-white border border-line rounded-2xl shadow-sm">
+          <div className="p-6 bg-white border border-line rounded-lg shadow-sm">
             <span className="block font-display text-4xl sm:text-5xl font-extrabold text-green mb-2">15+ Years</span>
             <strong className="block text-sm text-ink uppercase tracking-wider font-extrabold">of Industry Excellence</strong>
             <span className="text-xs text-muted mt-1 block">Established in 2009, pioneering innovation</span>
@@ -137,38 +153,33 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="container py-16 lg:py-24">
-        <div className="max-w-2xl mb-12 lg:mb-16">
-          <span className="font-display tracking-widest text-xs font-black uppercase text-green">OUR DRIVING FORCE</span>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">The Values That Frame Our Work</h2>
-          <p className="text-muted text-sm sm:text-base leading-relaxed mt-4">
-            Every system designed, every site coordinated, and every joint sealed is driven by our commitment to delivering durable quality.
-          </p>
-        </div>
+      <section className="container visual-section">
+        <SectionHeader
+          eyebrow="Our driving force"
+          title="The Values That Frame Our Work"
+          description="Every system designed, every site coordinated, and every joint sealed is driven by our commitment to delivering durable quality."
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {values.map((v, i) => (
-            <article 
-              key={i} 
-              className="border border-line rounded-2xl p-6 bg-surface-strong shadow-[0_8px_30px_rgba(7,21,38,0.02)] hover:-translate-y-1 hover:shadow-xl hover:border-green/20 transition-all duration-300 flex flex-col"
-            >
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-green flex items-center justify-center mb-6">
-                <v.Icon size={24} />
-              </div>
-              <h3 className="text-lg font-extrabold mb-3 text-ink">{v.title}</h3>
-              <p className="text-sm text-muted leading-relaxed flex-grow">{v.text}</p>
-            </article>
+          {values.map((v) => (
+            <ContentCard
+              key={v.title}
+              title={v.title}
+              description={v.text}
+              icon={<v.Icon size={23} />}
+            />
           ))}
         </div>
       </section>
 
       {/* Interactive History Timeline */}
-      <section className="bg-paper py-16 lg:py-24 border-y border-line">
+      <section className="visual-section visual-section--paper">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="font-display tracking-widest text-xs font-black uppercase text-green">MILESTONES & EVOLUTION</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">Our Journey of Engineering Precision</h2>
-          </div>
+          <SectionHeader
+            eyebrow="Milestones & evolution"
+            title="Our Journey of Engineering Precision"
+            align="center"
+          />
 
           <div className="relative max-w-4xl mx-auto">
             {/* Center line */}
@@ -207,44 +218,37 @@ export default function AboutPage() {
       </section>
 
       {/* Installation and Site Consultation Process */}
-      <section className="container py-16 lg:py-24">
-        <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-          <span className="font-display tracking-widest text-xs font-black uppercase text-green">THE ALUEDGE WORKFLOW</span>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">A Disciplined Approach From Blueprint to Handover</h2>
-          <p className="text-muted text-sm sm:text-base leading-relaxed mt-4">
-            Excellent systems require absolute care during installation. Here is how we ensure your profiles look and perform precisely as specified.
-          </p>
-        </div>
+      <section className="container visual-section">
+        <SectionHeader
+          eyebrow="The AluEdge workflow"
+          title="A Disciplined Approach From Blueprint to Handover"
+          description="Excellent systems require absolute care during installation. Here is how we ensure your profiles look and perform precisely as specified."
+          align="center"
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {processSteps.map((step, idx) => (
-            <div 
-              key={idx} 
-              className="bg-surface-strong border border-line rounded-2xl p-6 relative min-h-[220px] flex flex-col justify-between hover:shadow-lg hover:border-green/20 transition-all duration-300"
-            >
-              <div>
-                <span className="font-display text-4xl font-black text-green/10 block mb-4 leading-none">
-                  {step.step}
-                </span>
-                <h3 className="text-base font-extrabold mb-2 text-ink">{step.title}</h3>
-                <p className="text-xs text-muted leading-relaxed">{step.desc}</p>
-              </div>
-            </div>
+          {processSteps.map((step) => (
+            <ContentCard
+              key={step.title}
+              eyebrow={step.step}
+              title={step.title}
+              description={step.desc}
+            />
           ))}
         </div>
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="bg-paper py-16 lg:py-24 border-t border-line">
+      <section className="visual-section visual-section--paper">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="p-8 bg-gradient-to-br from-[#061928] to-[#0a2536] text-white rounded-2xl border-b-4 border-bronze shadow-lg">
+          <div className="p-8 bg-gradient-to-br from-[#061928] to-[#0a2536] text-white rounded-lg border-b-4 border-bronze shadow-lg">
             <span className="font-display tracking-[0.2em] text-xs font-black uppercase text-bronze">OUR VISION</span>
             <h2 className="font-display text-2xl sm:text-3xl font-medium mt-3 mb-4 text-white">Redefining Modern Spaces</h2>
             <p className="text-sm text-[#bdc8d2] leading-relaxed">
               To become a world-class leading brand and redefine modern architecture through innovative, stylish, and durable façade, glazing, and door-window solutions.
             </p>
           </div>
-          <div className="p-8 bg-white border border-line rounded-2xl shadow-sm">
+          <div className="p-8 bg-white border border-line rounded-lg shadow-sm">
             <span className="font-display tracking-[0.2em] text-xs font-black uppercase text-green">OUR MISSION</span>
             <h2 className="font-display text-2xl sm:text-3xl font-semibold mt-3 mb-4 text-ink">Commitment to Excellence</h2>
             <ul className="p-0 m-0 list-none space-y-3.5 text-sm text-muted">
@@ -269,22 +273,12 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA section */}
-      <section className="container mb-16 lg:mb-24">
-        <div className="cta__content rounded-3xl p-8 sm:p-12 md:p-16 text-center max-w-5xl mx-auto overflow-hidden relative bg-gradient-to-br from-[#061928] via-[#0d2536] to-[#04121d] border-b-4 border-bronze">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(17,115,62,0.15),transparent_60%)] pointer-events-none" />
-          <div className="relative z-10">
-            <span className="font-display tracking-widest text-xs font-black uppercase text-bronze">ARCHITECT & DEVELOPER SUPPORT</span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white mt-4 mb-6">Connect with AluEdge Engineers today.</h2>
-            <p className="text-[#d8e3ec] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8">
-              Let us consult on your engineering drawings, budget metrics, and installation timelines. We provide full drawing and profile customization support.
-            </p>
-            <div className="flex justify-center">
-              <Button href="/contact">Book Site Consultation</Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        eyebrow="Architect & developer support"
+        title="Connect with AluEdge Engineers today."
+        description="Let us consult on your engineering drawings, budget metrics, and installation timelines. We provide full drawing and profile customization support."
+        actions={<Button href="/contact">Book Site Consultation</Button>}
+      />
     </>
   );
 }

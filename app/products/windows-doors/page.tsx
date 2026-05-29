@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { Snowflake, Volume2, ShieldAlert, CheckCircle } from "lucide-react";
 import Button from "../../../components/Button";
+import ContentCard from "../../../components/ContentCard";
+import PageHero from "../../../components/PageHero";
+import SectionHeader from "../../../components/SectionHeader";
 
 const systems = [
   {
@@ -40,82 +43,52 @@ export const metadata = {
 export default function WindowsDoorsPage() {
   return (
     <>
-      {/* Product Hero */}
-      <section className="bg-gradient-to-br from-[#061928] via-[#0c2b3f] to-[#04121d] text-white py-16 lg:py-24 border-b-4 border-bronze relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.08),transparent_50%)] pointer-events-none" />
-        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center">
-          <div>
-            <span className="font-display tracking-widest text-xs font-black uppercase text-bronze">WINDOWS & DOORS</span>
-            <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight mt-4 mb-6 leading-tight text-white">
-              Precision Engineered Openings
-            </h1>
-            <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Advanced thermally-broken aluminium and uPVC fenestration systems planned for structural rigidity, thermal resistance, acoustic control, and seamless operability.
-            </p>
-            <div className="mt-8">
-              <Button href="/contact">Get Customized Quote</Button>
-            </div>
-          </div>
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] rounded-2xl overflow-hidden border border-white/5 shadow-2xl bg-surface-strong">
-            <Image
-              alt="Premium slimline sliding glass doors opening to patio"
-              fill
-              sizes="(max-width: 1024px) 100vw, 500px"
-              src="/images/optimized/aluedge-solution-windows-820.webp"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Windows & Doors"
+        title="Precision Engineered Openings"
+        description="Advanced thermally-broken aluminium and uPVC fenestration systems planned for structural rigidity, thermal resistance, acoustic control, and seamless operability."
+        actions={<Button href="/contact">Get Customized Quote</Button>}
+        media={(
+          <Image
+            alt="Premium slimline sliding glass doors opening to patio"
+            fill
+            sizes="(max-width: 1024px) 100vw, 500px"
+            src="/images/optimized/aluedge-solution-windows-820.webp"
+            priority
+          />
+        )}
+      />
 
-      {/* Product Variants Showcase */}
-      <section className="container py-16 lg:py-24">
-        <div className="max-w-2xl mb-12">
-          <span className="font-display tracking-widest text-xs font-black uppercase text-green">SYSTEM CONFIGURATIONS</span>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">
-            Apertures Designed for Modern Architecture
-          </h2>
-          <p className="text-muted text-sm sm:text-base leading-relaxed mt-3">
-            Choose from a wide variety of casement, sliding, lift-sliding, and customized pivoting configurations tailored to your climate exposure and sightline intent.
-          </p>
-        </div>
+      <section className="container visual-section">
+        <SectionHeader
+          eyebrow="System configurations"
+          title="Apertures Designed for Modern Architecture"
+          description="Choose from a wide variety of casement, sliding, lift-sliding, and customized pivoting configurations tailored to your climate exposure and sightline intent."
+        />
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {systems.map((sys, idx) => (
-            <div 
-              key={idx} 
-              className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-surface-strong border border-line rounded-2xl items-start shadow-[0_4px_16px_rgba(7,21,38,0.01)] hover:shadow-md transition-shadow duration-300"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#eaf5ef] text-green flex items-center justify-center font-black text-sm flex-shrink-0">
-                {idx + 1}
-              </div>
-              <div className="flex-1 space-y-2">
-                <h3 className="font-display text-lg sm:text-xl text-ink font-semibold tracking-tight">{sys.name}</h3>
-                <p className="text-muted text-sm sm:text-base leading-relaxed">{sys.desc}</p>
-                <div className="flex flex-wrap gap-4 pt-2 text-xs">
-                  <span className="text-green font-extrabold">&bull; {sys.depth}</span>
-                  <span className="text-bronze font-extrabold">&bull; {sys.spec}</span>
-                </div>
-              </div>
-            </div>
+            <ContentCard
+              key={sys.name}
+              eyebrow={`Configuration 0${idx + 1}`}
+              title={sys.name}
+              description={sys.desc}
+              tags={[sys.depth, sys.spec]}
+            />
           ))}
         </div>
       </section>
 
-      {/* Technical Specifications Matrix Table */}
-      <section className="bg-paper border-t border-b border-line py-16 lg:py-24">
+      <section className="visual-section visual-section--paper">
         <div className="container max-w-4xl">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-display tracking-widest text-xs font-black uppercase text-green">ENGINEERING PERFORMANCE MATRIX</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">Certified Testing Parameters</h2>
-            <p className="text-muted text-sm sm:text-base leading-relaxed mt-3">
-              AluEdge systems undergo testing and verification according to rigorous European standardizations.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Engineering performance matrix"
+            title="Certified Testing Parameters"
+            description="AluEdge systems undergo testing and verification according to rigorous European standardizations."
+            align="center"
+          />
 
-          <div className="overflow-x-auto w-full rounded-2xl border border-line bg-white shadow-[0_8px_30px_rgba(7,21,38,0.015)]">
+          <div className="overflow-x-auto w-full rounded-lg border border-line bg-white shadow-[0_8px_30px_rgba(7,21,38,0.015)]">
             <table className="w-full border-collapse text-left text-sm min-w-[640px]">
               <thead>
                 <tr className="bg-[#071526] text-white border-b border-line">
@@ -144,14 +117,15 @@ export default function WindowsDoorsPage() {
       </section>
 
       {/* Glazing Selection Guidance Section */}
-      <section className="container py-16 lg:py-24">
+      <section className="container visual-section">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <span className="font-display tracking-widest text-xs font-black uppercase text-green">GLASS TECHNOLOGY</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">Custom Glazing Configurations</h2>
-            <p className="text-muted text-sm sm:text-base leading-relaxed mt-4">
-              Profiles are only as strong as the glass inside. We help you choose the right configurations to combat excessive sunlight, damp sound, and provide high security checks.
-            </p>
+            <SectionHeader
+              eyebrow="Glass technology"
+              title="Custom Glazing Configurations"
+              description="Profiles are only as strong as the glass inside. We help you choose the right configurations to combat excessive sunlight, damp sound, and provide high security checks."
+              className="mb-8"
+            />
             
             <div className="space-y-5 mt-8">
               <div className="flex gap-4 items-start">

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { Phone, Mail, MapPin, CheckCircle, Shield, ChevronDown } from "lucide-react";
 import Button from "../../components/Button";
 import { businessDetails } from "../../components/businessDetails";
+import PageHero from "../../components/PageHero";
+import SectionHeader from "../../components/SectionHeader";
 
 const faqs = [
   {
@@ -57,24 +59,17 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Contact Hero */}
-      <section className="bg-gradient-to-b from-[#f8faf9] to-[#eef4f1] py-16 lg:py-24 border-b border-line">
-        <div className="container text-center max-w-3xl">
-          <span className="font-display tracking-widest text-xs font-black uppercase text-green">PROJECT INQUIRY & SUPPORT</span>
-          <h1 className="font-display text-4xl sm:text-5xl font-medium tracking-tight mt-4 mb-6 leading-tight text-ink">
-            Ready to Discuss Your Architectural Project?
-          </h1>
-          <p className="text-muted text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Share your drawings, specification sheets, or outline requirements. Our engineering team will review and connect within 24 business hours.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Project inquiry & support"
+        title="Ready to Discuss Your Architectural Project?"
+        description="Share your drawings, specification sheets, or outline requirements. Our engineering team will review and connect within 24 business hours."
+      />
 
       {/* Main Form and Info Grid */}
-      <section className="container py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
+      <section className="container visual-section grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
         
         {/* Glassmorphic Intake Form */}
-        <div className="bg-white border border-line rounded-2xl p-6 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(7,21,38,0.03)] relative overflow-hidden">
+        <div className="bg-white border border-line rounded-lg p-6 sm:p-8 md:p-10 shadow-[0_12px_40px_rgba(7,21,38,0.03)] relative overflow-hidden">
           {/* Accent strip */}
           <div className="absolute top-0 left-0 right-0 h-1.5 bg-green" />
 
@@ -253,16 +248,15 @@ export default function ContactPage() {
         {/* Office Contact Coordinates & Map */}
         <div className="space-y-6">
           
-          <div className="bg-gradient-to-br from-[#071526] via-[#0c2b3d] to-[#04121d] text-white border border-white/5 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-emerald-500/5 rounded-full blur-[80px] pointer-events-none" />
+          <div className="bg-gradient-to-br from-[#071526] via-[#0c2b3d] to-[#04121d] text-white border border-white/5 rounded-lg p-6 sm:p-8 shadow-2xl relative overflow-hidden">
             <span className="font-display tracking-widest text-xs font-black uppercase text-bronze">DIRECT COORDINATES</span>
-            <h2 className="font-display text-2xl text-white mt-3 mb-6 font-semibold">Indore Corporate Office</h2>
+            <h2 className="font-display text-2xl text-white mt-3 mb-6 font-semibold">Indore Experience Centre</h2>
             
             <div className="space-y-6 relative z-10">
               <div className="flex gap-4 items-start">
                 <MapPin size={22} className="text-bronze flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="text-[10px] font-black tracking-widest text-white/50 uppercase mb-1">Corporate Address</h3>
+                  <h3 className="text-[10px] font-black tracking-widest text-white/50 uppercase mb-1">Experience Centre</h3>
                   <p className="text-sm text-[#dce6ef] leading-relaxed">{businessDetails.address}</p>
                 </div>
               </div>
@@ -288,7 +282,7 @@ export default function ContactPage() {
           </div>
 
           {/* Premium Google Map Mockup */}
-          <div className="border border-line rounded-2xl bg-surface h-[280px] relative overflow-hidden shadow-[0_8px_30px_rgba(7,21,38,0.02)] flex flex-col justify-end">
+          <div className="border border-line rounded-lg bg-surface h-[280px] relative overflow-hidden shadow-[0_8px_30px_rgba(7,21,38,0.02)] flex flex-col justify-end">
             <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-slate-800/10 z-1" />
             
             {/* Styled Map background abstract elements */}
@@ -306,11 +300,11 @@ export default function ContactPage() {
 
             <div className="bg-white/95 backdrop-blur-md border-t border-line p-5 z-20 relative flex justify-between items-center gap-4">
               <div>
-                <strong className="text-xs sm:text-sm text-ink block font-bold">Adinath Warehouse, Adinath Estate</strong>
-                <span className="text-[11px] text-muted block mt-0.5">Gram Nayta Mundla, A.B. Road Bypass, Indore, MP - 452020</span>
+                <strong className="text-xs sm:text-sm text-ink block font-bold">3-FA, Scheme No. 94</strong>
+                <span className="text-[11px] text-muted block mt-0.5">Near Pipliyahana Square, Ring Road, Indore-452016</span>
               </div>
               <a 
-                href="https://maps.google.com/?q=Adinath+Estate,+Indore" 
+                href="https://maps.google.com/?q=3-FA,+Scheme+No.+94,+Near+Pipliyahana+Square,+Ring+Road,+Indore+452016" 
                 target="_blank" 
                 rel="noreferrer"
                 className="text-[11px] text-green font-black border border-green rounded px-3 py-2 bg-white hover:bg-emerald-50 transition-all flex-shrink-0"
@@ -324,16 +318,14 @@ export default function ContactPage() {
       </section>
 
       {/* Dynamic Collapsible Accordion FAQs */}
-      <section className="bg-paper border-y border-line py-16 lg:py-24">
+      <section className="visual-section visual-section--paper">
         <div className="container max-w-4xl">
-          
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-display tracking-widest text-xs font-black uppercase text-green">COMMON QUERIES</span>
-            <h2 className="font-display text-3xl sm:text-4xl font-semibold mt-3 text-ink">Architectural Consultation & Timelines</h2>
-            <p className="text-muted text-sm sm:text-base mt-3">
-              Important technical parameters to consider before finalizing fenestration contracts
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Common queries"
+            title="Architectural Consultation & Timelines"
+            description="Important technical parameters to consider before finalizing fenestration contracts."
+            align="center"
+          />
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => {
