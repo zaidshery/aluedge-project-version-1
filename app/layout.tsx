@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Premium windows, doors, facades, cladding and architectural fenestration solutions across India.",
   icons: {
-    icon: "/images/aluedge-logo.png",
+    icon: "/favicon.png",
   },
 };
 

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight, Menu, Search, X } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import BrandMark from "./BrandMark";
 import Button from "./Button";
 
@@ -45,14 +45,11 @@ const navigation: NavItem[] = [
 
 export default function Header() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const [prevPathname, setPrevPathname] = useState(pathname);
-
-  if (pathname !== prevPathname) {
-    setPrevPathname(pathname);
-    setMobileMenuOpen(false);
-  }
+  const [mobileMenuState, setMobileMenuState] = useState({
+    isOpen: false,
+    pathname,
+  });
+  const mobileMenuOpen = mobileMenuState.pathname === pathname && mobileMenuState.isOpen;
 
   const isActive = (href: string) => {
     if (href === "/") {
@@ -100,16 +97,17 @@ export default function Header() {
         </nav>
 
         <div className="site-header__actions">
-          <button aria-label="Search" className="icon-button icon-button--search" type="button">
-            <Search size={21} />
-          </button>
-
           {/* Toggle-driven mobile menu with smooth overlay */}
-          <div className="mobile-menu-wrapper">
+          <div className="mobile-menu">
             <button
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               className="icon-button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() =>
+                setMobileMenuState({
+                  isOpen: !mobileMenuOpen,
+                  pathname,
+                })
+              }
               type="button"
             >
               {mobileMenuOpen ? <X size={23} strokeWidth={2.2} /> : <Menu size={23} strokeWidth={2.2} />}

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -18,6 +20,8 @@ import {
   Volume2,
   Wrench,
   Palette,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -232,6 +236,121 @@ const trustedLogos = [
 ];
 
 export default function HomePage() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const isPausedRef = useRef(false);
+
+  const updateScrollState = () => {
+    const container = scrollRef.current;
+    if (container) {
+      const scrollLeft = container.scrollLeft;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+
+      setCanScrollLeft(scrollLeft > 5);
+      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 5);
+
+      const card = container.querySelector(".solution-card");
+      if (card) {
+        const cardWidth = card.clientWidth;
+        const cards = container.querySelectorAll(".solution-card");
+        let gap = 24;
+        if (cards.length > 1) {
+          gap = (cards[1] as HTMLElement).offsetLeft - ((cards[0] as HTMLElement).offsetLeft + cardWidth);
+        }
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveIndex(Math.max(0, Math.min(solutions.length - 1, index)));
+      }
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (container) {
+      container.addEventListener("scroll", updateScrollState, { passive: true });
+      updateScrollState();
+      window.addEventListener("resize", updateScrollState);
+    }
+    return () => {
+      if (container) {
+        container.removeEventListener("scroll", updateScrollState);
+      }
+      window.removeEventListener("resize", updateScrollState);
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (isPausedRef.current) return;
+      if (document.hidden) return;
+
+      const container = scrollRef.current;
+      if (container) {
+        const card = container.querySelector(".solution-card");
+        if (card) {
+          const cardWidth = card.clientWidth;
+          const cards = container.querySelectorAll(".solution-card");
+          let gap = 24;
+          if (cards.length > 1) {
+            gap = (cards[1] as HTMLElement).offsetLeft - ((cards[0] as HTMLElement).offsetLeft + cardWidth);
+          }
+
+          const maxScrollLeft = container.scrollWidth - container.clientWidth;
+          if (container.scrollLeft >= maxScrollLeft - 5) {
+            container.scrollTo({ left: 0, behavior: "smooth" });
+          } else {
+            container.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
+          }
+        }
+      }
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollRef.current;
+    if (container) {
+      const card = container.querySelector(".solution-card");
+      if (card) {
+        const cardWidth = card.clientWidth;
+        const cards = container.querySelectorAll(".solution-card");
+        let gap = 24;
+        if (cards.length > 1) {
+          gap = (cards[1] as HTMLElement).offsetLeft - ((cards[0] as HTMLElement).offsetLeft + cardWidth);
+        }
+        const scrollAmount = direction === "left" ? -(cardWidth + gap) : (cardWidth + gap);
+        container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
+
+  const scrollToIndex = (index: number) => {
+    const container = scrollRef.current;
+    if (container) {
+      const card = container.querySelector(".solution-card");
+      if (card) {
+        const cardWidth = card.clientWidth;
+        const cards = container.querySelectorAll(".solution-card");
+        let gap = 24;
+        if (cards.length > 1) {
+          gap = (cards[1] as HTMLElement).offsetLeft - ((cards[0] as HTMLElement).offsetLeft + cardWidth);
+        }
+        container.scrollTo({ left: index * (cardWidth + gap), behavior: "smooth" });
+      }
+    }
+  };
+
+  const handleMouseEnter = () => {
+    isPausedRef.current = true;
+  };
+
+  const handleMouseLeave = () => {
+    isPausedRef.current = false;
+  };
+
   return (
     <>
       <section className="hero">
@@ -332,15 +451,6 @@ export default function HomePage() {
               </div>
             </article>
           ))}
-          {featureStrip.map(({ title, text, Icon }) => (
-            <article aria-hidden="true" className="feature-strip__item-dup" key={`${title}-loop`}>
-              <Icon size={34} strokeWidth={1.8} />
-              <div>
-                <h2>{title}</h2>
-                <p>{text}</p>
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -354,35 +464,75 @@ export default function HomePage() {
             performance-first approach.
           </p>
         </div>
-        <div className="solutions__grid">
-          {solutions.map(({ title, text, Icon, image, features, href }) => (
-            <article className="solution-card" key={title}>
-              <div className="solution-card__image">
-                <Image
-                  alt={`${title} architectural system by AluEdge`}
-                  height={130}
-                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 72px) / 2), (max-width: 1440px) calc((100vw - 128px) / 3), 470px"
-                  src={image}
-                  width={190}
-                />
-                <span className="solution-card__mark">
-                  <Icon size={22} strokeWidth={1.8} />
-                </span>
-              </div>
-              <div className="solution-card__content">
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <div className="solution-card__tags" aria-label={`${title} capabilities`}>
-                  {features.map((feature) => (
-                    <span key={feature}>{feature}</span>
-                  ))}
+        <div 
+          className="solutions__carousel-wrapper"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onTouchStart={handleMouseEnter}
+          onTouchEnd={handleMouseLeave}
+        >
+          <button 
+            className="carousel-button carousel-button--left" 
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            type="button"
+            disabled={!canScrollLeft}
+          >
+            <ChevronLeft size={24} />
+          </button>
+ 
+          <div className="solutions__grid" ref={scrollRef}>
+            {solutions.map(({ title, text, Icon, image, features, href }) => (
+              <article className="solution-card" key={title}>
+                <div className="solution-card__image">
+                  <Image
+                    alt={`${title} architectural system by AluEdge`}
+                    height={130}
+                    sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) calc((100vw - 72px) / 2), (max-width: 1440px) calc((100vw - 128px) / 3), 470px"
+                    src={image}
+                    width={190}
+                  />
+                  <span className="solution-card__mark">
+                    <Icon size={22} strokeWidth={1.8} />
+                  </span>
                 </div>
-              </div>
-              <Link className="solution-card__action" href={href} aria-label={`Discuss ${title} with AluEdge`}>
-                Explore solution <ArrowRight size={16} strokeWidth={2.2} />
-              </Link>
-            </article>
-          ))}
+                <div className="solution-card__content">
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                  <div className="solution-card__tags" aria-label={`${title} capabilities`}>
+                    {features.map((feature) => (
+                      <span key={feature}>{feature}</span>
+                    ))}
+                  </div>
+                </div>
+                <Link className="solution-card__action" href={href} aria-label={`Discuss ${title} with AluEdge`}>
+                  Explore solution <ArrowRight size={16} strokeWidth={2.2} />
+                </Link>
+              </article>
+            ))}
+          </div>
+ 
+          <button 
+            className="carousel-button carousel-button--right" 
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            type="button"
+            disabled={!canScrollRight}
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          <div className="carousel-dots" aria-label="Solutions carousel slides">
+            {solutions.map((sol, index) => (
+              <button
+                key={sol.title}
+                className={`carousel-dot ${index === activeIndex ? "carousel-dot--active" : ""}`}
+                onClick={() => scrollToIndex(index)}
+                aria-label={`Go to slide ${index + 1}: ${sol.title}`}
+                type="button"
+              />
+            ))}
+          </div>
         </div>
         <div className="solutions__actions">
           <Button href="/contact">Discuss Your Requirement</Button>
@@ -474,7 +624,7 @@ export default function HomePage() {
         <div className="why__intro">
           <div className="section-heading">
             <p className="eyebrow">Why choose AluEdge?</p>
-            <h2>Built for teams that need reliable execution.</h2>
+            <h2>Engineered for Performance, Built for Trust.</h2>
           </div>
           <p>
             Architects, builders, developers, and homeowners choose AluEdge for system guidance,
@@ -539,7 +689,7 @@ export default function HomePage() {
 
       <section className="trusted container" id="resources" aria-label="Trusted project teams">
         <p className="eyebrow">Trusted by teams across architecture, construction, and interiors</p>
-        <h2>Built for project teams that need reliable execution.</h2>
+        <h2>Collaborating with India's Leading Professionals.</h2>
         <div className="trusted__viewport">
           <div className="trusted__track">
             {trustedLogos.map((logo) => (
