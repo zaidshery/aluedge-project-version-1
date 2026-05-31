@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
@@ -52,6 +52,24 @@ export default function Header() {
   });
   const mobileMenuOpen = mobileMenuState.pathname === pathname && mobileMenuState.isOpen;
 
+  const closeDesktopDropdowns = useCallback(() => {
+    document.querySelectorAll<HTMLDetailsElement>(".nav-dropdown[open]").forEach((dropdown) => {
+      dropdown.open = false;
+    });
+  }, []);
+
+  const closeNavigationMenus = useCallback(() => {
+    closeDesktopDropdowns();
+    setMobileMenuState({
+      isOpen: false,
+      pathname,
+    });
+  }, [closeDesktopDropdowns, pathname]);
+
+  useEffect(() => {
+    closeDesktopDropdowns();
+  }, [closeDesktopDropdowns, pathname]);
+
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -73,12 +91,17 @@ export default function Header() {
                   <ChevronDown size={14} strokeWidth={2.4} />
                 </summary>
                 <div className="nav-dropdown__panel">
-                  <Link className="nav-dropdown__overview" href={item.href}>
+                  <Link className="nav-dropdown__overview" href={item.href} onClick={closeNavigationMenus}>
                     <span>Explore {item.label}</span>
                     <ArrowRight size={15} strokeWidth={2.3} />
                   </Link>
                   {item.children.map((child) => (
-                    <Link className="nav-dropdown__item" href={child.href} key={child.label}>
+                    <Link
+                      className="nav-dropdown__item"
+                      href={child.href}
+                      key={child.label}
+                      onClick={closeNavigationMenus}
+                    >
                       <span>{child.label}</span>
                       <small>{child.text}</small>
                     </Link>
@@ -90,6 +113,7 @@ export default function Header() {
                 className={`primary-nav__link${isActive(item.href) ? " active" : ""}`}
                 href={item.href}
                 key={item.label}
+                onClick={closeNavigationMenus}
               >
                 <span>{item.label}</span>
               </Link>
@@ -122,13 +146,19 @@ export default function Header() {
                       <Link
                         className={`mobile-menu__link${isActive(item.href) ? " active" : ""}`}
                         href={item.href}
+                        onClick={closeNavigationMenus}
                       >
                         <span>{item.label}</span>
                       </Link>
                       {item.children && (
                         <div className="mobile-menu__children">
                           {item.children.map((child) => (
-                            <Link className="mobile-menu__child" href={child.href} key={child.label}>
+                            <Link
+                              className="mobile-menu__child"
+                              href={child.href}
+                              key={child.label}
+                              onClick={closeNavigationMenus}
+                            >
                               {child.label}
                             </Link>
                           ))}

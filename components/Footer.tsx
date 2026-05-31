@@ -62,7 +62,7 @@ export default function Footer() {
                 <MapPin size={22} strokeWidth={2.3} />
               </span>
               <div className="footer__contact-copy">
-                <strong>Indore Experience Centre</strong>
+                <strong>Experience Centre</strong>
                 <p>{businessDetails.address}</p>
               </div>
             </div>

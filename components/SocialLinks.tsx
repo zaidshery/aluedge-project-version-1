@@ -18,6 +18,18 @@ function FacebookIcon() {
   );
 }
 
+function LinkedinIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="M6.5 9.5V19" />
+      <path d="M6.5 6.2v.1" />
+      <path d="M11 19v-9.5" />
+      <path d="M11 13.6c0-2.5 1.6-4.1 3.8-4.1 2.4 0 3.7 1.6 3.7 4.4V19" />
+      <path d="M11 19h0" />
+    </svg>
+  );
+}
+
 function XSocialIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -37,9 +49,20 @@ function WhatsAppIcon() {
 
 const socialLinks = [
   { label: "WhatsApp", href: "https://wa.me/919826345598", icon: WhatsAppIcon, tone: "whatsapp" },
-  { label: "Instagram", href: "#", icon: InstagramIcon, tone: "instagram" },
-  { label: "Facebook", href: "#", icon: FacebookIcon, tone: "facebook" },
-  { label: "X", href: "#", icon: XSocialIcon, tone: "x" },
+  { label: "Instagram", href: "https://www.instagram.com/aluedge_1/", icon: InstagramIcon, tone: "instagram" },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61589392245679",
+    icon: FacebookIcon,
+    tone: "facebook",
+  },
+  { label: "X", href: "https://x.com/AluEdge", icon: XSocialIcon, tone: "x" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/aluedge-fenestration-solutions-622779410/",
+    icon: LinkedinIcon,
+    tone: "linkedin",
+  },
 ];
 
 type SocialLinksProps = {

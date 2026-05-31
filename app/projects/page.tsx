@@ -373,6 +373,8 @@ export default function ProjectsPage() {
   const [selectedFilter, setSelectedFilter] = useState<string>("All");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
 
+  const filterOptions = ["All", "Residential", "Commercial", "Hospitality", "Infrastructure"];
+
   const filteredProjects = selectedFilter === "All"
     ? projectData
     : projectData.filter(p => p.category === selectedFilter);
@@ -394,21 +396,18 @@ export default function ProjectsPage() {
           align="center"
         />
         
-        <div className="flex flex-wrap gap-2.5 justify-center mb-12 border-b border-line pb-8">
-          {["All", "Residential", "Commercial", "Hospitality", "Infrastructure"].map((cat) => {
+        <div className="projects-segment-bar" aria-label="Filter projects by segment">
+          {filterOptions.map((cat) => {
             const isSelected = selectedFilter === cat;
             return (
               <button
                 key={cat}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => setSelectedFilter(cat)}
-                className={`min-h-10 px-6 rounded-full font-black text-xs uppercase tracking-wider cursor-pointer transition-all duration-300 ${
-                  isSelected 
-                    ? "bg-green text-white shadow-lg shadow-green/20 border border-green" 
-                    : "bg-white border border-line text-ink hover:bg-surface-strong hover:border-muted"
-                }`}
+                className={`projects-segment-button${isSelected ? " projects-segment-button--active" : ""}`}
               >
-                {cat}
+                <span>{cat}</span>
               </button>
             );
           })}

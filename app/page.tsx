@@ -443,7 +443,16 @@ export default function HomePage() {
       <section className="feature-strip container" aria-label="Product strengths">
         <div className="feature-strip__track">
           {featureStrip.map(({ title, text, Icon }) => (
-            <article key={title}>
+            <article className="feature-strip__item" key={title}>
+              <Icon size={34} strokeWidth={1.8} />
+              <div>
+                <h2>{title}</h2>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
+          {featureStrip.map(({ title, text, Icon }) => (
+            <article aria-hidden="true" className="feature-strip__item feature-strip__item--dup" key={`${title}-dup`}>
               <Icon size={34} strokeWidth={1.8} />
               <div>
                 <h2>{title}</h2>
