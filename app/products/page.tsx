@@ -7,31 +7,45 @@ import SectionHeader from "../../components/SectionHeader";
 
 const productFamilies = [
   {
-    title: "Doors & Windows Systems",
-    desc: "Advanced openings and custom partitions engineered for excellent acoustics, thermal insulation, structural strength, and smooth daily operations.",
-    Icon: Home,
-    image: "/images/optimized/aluedge-solution-windows-820.webp",
-    features: [
-      "uPVC Doors & Windows (Soundproof & Thermal)",
-      "Aluminium Doors & Windows (Sliding & Casement)",
-      "Toughened Glass Doors (High Traffic)",
-      "Modern Office Glass Partitions & Workspace Separators"
-    ],
-    href: "/contact",
-    tag: "Fenestration",
-  },
-  {
-    title: "Façade & Glazing Systems",
+    title: "Façade Solutions",
     desc: "Seamless, high-visibility structural glass exteriors and curtain walls engineered to satisfy modern high-rise load demands and design criteria.",
     Icon: Building2,
     image: "/images/optimized/aluedge-solution-facade-820.webp",
     features: [
       "Curtain Wall Systems (Semi-Unitized & Unitized)",
       "Structural Glazing (Seamless Glass)",
-      "Spider Glazing & Frameless Glass Minimalist Systems"
+      "Spider Glazing & Frameless Glass Minimalist Systems",
     ],
-    href: "/contact",
+    href: "/products/facade-solution",
     tag: "Façades",
+  },
+  {
+    title: "Aluminium Windows & Doors",
+    desc: "Premium aluminium sliding, casement, folding, and lift-slide systems with slim sightlines, robust hardware, and architectural finishes.",
+    Icon: Home,
+    image: "/images/optimized/aluedge-project-residence-820.webp",
+    features: [
+      "Slimline Sliding Systems",
+      "Casement & Fixed Windows",
+      "Sliding-Folding Doors",
+      "Premium Powder-Coated Finishes",
+    ],
+    href: "/products/aluminium-windows-doors",
+    tag: "Aluminium",
+  },
+  {
+    title: "uPVC Windows & Doors",
+    desc: "Soundproof, thermal-efficient uPVC openings designed for residential comfort, low maintenance, weather sealing, and long service life.",
+    Icon: Home,
+    image: "/images/optimized/aluedge-solution-windows-820.webp",
+    features: [
+      "Soundproof Sealing",
+      "Thermal Insulation",
+      "Sliding & Casement Windows",
+      "Low-Maintenance Profiles",
+    ],
+    href: "/products/upvc-windows-doors",
+    tag: "uPVC",
   },
   {
     title: "Cladding Solutions",
@@ -41,23 +55,23 @@ const productFamilies = [
     features: [
       "Aluminium Composite Panel Cladding (ACP)",
       "High-Pressure Laminate Cladding (HPL)",
-      "Dry & Wet Stone/Tile Structural Cladding Solutions"
+      "Dry & Wet Stone/Tile Structural Cladding Solutions",
     ],
-    href: "/contact",
+    href: "/products/cladding-solutions",
     tag: "Envelopes",
   },
   {
-    title: "Ceiling & Architectural Systems",
-    desc: "Premium metal ceilings, grid ceilings, and specialized structural glass details built to elevate aesthetics, airflow control, and safety.",
+    title: "Ceiling Solutions",
+    desc: "Premium metal ceilings, grid ceilings, and linear ceiling systems built to elevate interior aesthetics, airflow control, acoustics, and safety.",
     Icon: Wrench,
     image: "/images/optimized/aluedge-solution-ceiling-820.webp",
     features: [
-      "Ceiling Systems (Metal & Grid False Ceilings)",
-      "Glass Railings (Balcony Glass & Balustrades)",
-      "Aluminium Louvers & Screen Façades (Airflow Control)"
+      "Metal & Grid False Ceilings",
+      "Linear Aluminium Ceilings",
+      "Clip-in Metal Tile Ceilings",
     ],
-    href: "/contact",
-    tag: "Systems",
+    href: "/products/ceiling-solutions",
+    tag: "Ceilings",
   },
 ];
 
@@ -104,7 +118,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <div className="pt-1">
-                <Button href={item.href}>Deep-Dive Specifications</Button>
+                <Button href={item.href}>View Category</Button>
               </div>
             </ContentCard>
           ))}

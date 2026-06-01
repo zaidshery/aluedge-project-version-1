@@ -368,10 +368,10 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="hero__lead hero__lead-desktop">
-              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural façade systems, premium aluminium, and uPVC windows and doors.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade systems, premium aluminium, and uPVC windows and doors.
             </p>
             <p className="hero__lead hero__lead-mobile">
-              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural façade systems, premium aluminium, and uPVC windows and doors.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade systems, premium aluminium, and uPVC windows and doors.
             </p>
             <div className="hero__actions">
               <Button href="#solutions">Explore Our Solutions</Button>
@@ -410,6 +410,8 @@ export default function HomePage() {
                     preload="auto"
                     class="hero__video"
                   >
+                    <source src="/aluedge-hero-video-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+                    <source src="/aluedge-hero-video.mp4" type="video/mp4" media="(min-width: 641px)" />
                     <source src="/aluedge-hero-video.mp4" type="video/mp4" />
                   </video>
                 `

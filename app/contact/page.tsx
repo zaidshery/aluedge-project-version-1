@@ -43,14 +43,49 @@ export default function ContactPage() {
   const [budget, setBudget] = useState("Premium Aluminium Systems");
   const [timeline, setTimeline] = useState("Immediate Execution");
   const [message, setMessage] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !phone) {
       alert("Please fill in Name, Email, and Phone number.");
       return;
     }
-    setSubmitted(true);
+
+    setSubmitError("");
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          segment,
+          area,
+          budget,
+          timeline,
+          message,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "Unable to submit inquiry right now.");
+      }
+
+      setSubmitted(true);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : "Unable to submit inquiry right now.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const toggleFaq = (idx: number) => {
@@ -106,7 +141,10 @@ export default function ContactPage() {
               </div>
               
               <button 
-                onClick={() => setSubmitted(false)}
+                onClick={() => {
+                  setSubmitted(false);
+                  setSubmitError("");
+                }}
                 className="mt-8 bg-transparent border-0 text-green font-black cursor-pointer text-sm hover:underline"
               >
                 Submit another inquiry &rarr;
@@ -238,8 +276,16 @@ export default function ContactPage() {
                 <span>Your site details are encrypted and treated with strict privacy parameters.</span>
               </div>
 
+              {submitError && (
+                <p className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
+                  {submitError}
+                </p>
+              )}
+
               <div className="pt-2">
-                <Button type="submit">Submit Intake Form</Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? "Submitting..." : "Submit Intake Form"}
+                </Button>
               </div>
             </form>
           )}

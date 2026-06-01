@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
@@ -24,10 +24,11 @@ const navigation: NavItem[] = [
     label: "Products & Services",
     href: "/products",
     children: [
-      { label: "Windows & Doors", href: "/products/windows-doors", text: "Premium aluminium and uPVC systems" },
-      { label: "Facade & Glazing", href: "/products/facade-glazing", text: "Architectural glass and facade solutions" },
-      { label: "Cladding & Ceilings", href: "/products/cladding-ceilings", text: "Durable finishes for modern envelopes" },
-      { label: "Railing & Decking", href: "/products/railing-decking", text: "Refined safety details for every project" },
+      { label: "Façade Solutions", href: "/products/facade-solution", text: "Architectural glass and facade envelope systems" },
+      { label: "Aluminium Windows & Doors", href: "/products/aluminium-windows-doors", text: "Premium aluminium sliding, casement, and folding systems" },
+      { label: "uPVC Windows & Doors", href: "/products/upvc-windows-doors", text: "Soundproof and thermal-efficient uPVC systems" },
+      { label: "Cladding Solutions", href: "/products/cladding-solutions", text: "ACP, HPL, and exterior finish systems" },
+      { label: "Ceiling Solutions", href: "/products/ceiling-solutions", text: "Metal ceiling and architectural interior systems" },
     ],
   },
   { label: "Projects", href: "/projects" },
@@ -46,17 +47,26 @@ const navigation: NavItem[] = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [activeDropdownState, setActiveDropdownState] = useState<{
+    label: string | null;
+    pathname: string;
+  }>({
+    label: null,
+    pathname,
+  });
   const [mobileMenuState, setMobileMenuState] = useState({
     isOpen: false,
     pathname,
   });
+  const activeDropdown = activeDropdownState.pathname === pathname ? activeDropdownState.label : null;
   const mobileMenuOpen = mobileMenuState.pathname === pathname && mobileMenuState.isOpen;
 
   const closeDesktopDropdowns = useCallback(() => {
-    document.querySelectorAll<HTMLDetailsElement>(".nav-dropdown[open]").forEach((dropdown) => {
-      dropdown.open = false;
+    setActiveDropdownState({
+      label: null,
+      pathname,
     });
-  }, []);
+  }, [pathname]);
 
   const closeNavigationMenus = useCallback(() => {
     closeDesktopDropdowns();
@@ -64,10 +74,6 @@ export default function Header() {
       isOpen: false,
       pathname,
     });
-  }, [closeDesktopDropdowns, pathname]);
-
-  useEffect(() => {
-    closeDesktopDropdowns();
   }, [closeDesktopDropdowns, pathname]);
 
   const isActive = (href: string) => {
@@ -85,8 +91,22 @@ export default function Header() {
         <nav aria-label="Primary navigation" className="primary-nav">
           {navigation.map((item) =>
             item.children ? (
-              <details className="nav-dropdown" key={item.label}>
-                <summary className={`primary-nav__link${isActive(item.href) ? " active" : ""}`}>
+              <details className="nav-dropdown" key={item.label} open={activeDropdown === item.label}>
+                <summary
+                  className={`primary-nav__link${isActive(item.href) ? " active" : ""}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setActiveDropdownState((currentDropdownState) => {
+                      const currentDropdown =
+                        currentDropdownState.pathname === pathname ? currentDropdownState.label : null;
+
+                      return {
+                        label: currentDropdown === item.label ? null : item.label,
+                        pathname,
+                      };
+                    });
+                  }}
+                >
                   <span>{item.label}</span>
                   <ChevronDown size={14} strokeWidth={2.4} />
                 </summary>

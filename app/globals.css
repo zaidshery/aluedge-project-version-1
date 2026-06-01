@@ -254,18 +254,6 @@ svg {
   transform: translate(-50%, 0);
 }
 
-@media (min-width: 1025px) {
-  .nav-dropdown:hover .nav-dropdown__panel {
-    display: grid;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translate(-50%, 0);
-  }
-  .nav-dropdown:hover summary svg {
-    transform: rotate(180deg);
-  }
-}
-
 .nav-dropdown__overview,
 .nav-dropdown__item {
   display: grid;
@@ -636,6 +624,12 @@ svg {
 .button:active {
   transform: translateY(0) scale(0.98);
   transition-duration: 60ms;
+}
+
+.button:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
 }
 
 .button--primary {
@@ -1447,6 +1441,7 @@ svg {
   isolation: isolate;
   grid-area: media;
   width: 100%;
+  margin-left: -2px;
   justify-self: stretch;
   min-height: 0;
   overflow: hidden;
@@ -1460,7 +1455,7 @@ svg {
 
 .hero__media::before {
   position: absolute;
-  inset: 0;
+  inset: 0 0 0 -2px;
   z-index: 2;
   background:
     linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.92) 10%, rgba(255, 255, 255, 0.24) 43%, rgba(255, 255, 255, 0) 68%),
