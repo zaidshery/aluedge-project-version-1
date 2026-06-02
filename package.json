@@ -6,6 +6,7 @@
     "dev": "next dev",
     "dev:turbo": "next dev --turbopack",
     "build": "next build",
+    "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "optimize-images": "node ./scripts/optimize-images.js && node ./scripts/create-final-heroes.js",
     "typecheck": "tsc --noEmit"

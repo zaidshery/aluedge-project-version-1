@@ -451,9 +451,7 @@ export default function HomePage() {
           <p className="eyebrow">Complete fenestration solutions</p>
           <h2>End-to-End Systems for Modern Building Envelopes</h2>
           <p className="section-heading__text">
-            From precision Windows and Doors to Facade, Glazing, Cladding, Ceiling, Railing,
-            and Partition Systems, AluEdge coordinates architectural packages with a clear
-            performance-first approach.
+            From Precision Windows & Doors to Façade, Glazing, Cladding, Ceiling, Railing, and Partition Systems, AluEdge provides integrated architectural solutions with a clear performance-first approach.
           </p>
         </div>
         <div 
