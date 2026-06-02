@@ -382,13 +382,13 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="hero__media">
-            <Image
+             <Image
               alt="Premium architectural facade with large glass fenestration by AluEdge"
               className="hero__poster hero__poster--desktop"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 820px"
-              src="/images/optimized/aluedge-hero-campus-1600.webp"
+              src="/images/aluedge-hero-desktop.jpg"
             />
             <Image
               alt="Premium architectural facade vertical crop for mobile"
@@ -396,26 +396,7 @@ export default function HomePage() {
               fill
               priority
               sizes="(max-width: 760px) 100vw, 820px"
-              src="/images/optimized/aluedge-hero-mobile-final.webp"
-            />
-            <div
-              style={{ display: "contents" }}
-              dangerouslySetInnerHTML={{
-                __html: `
-                  <video
-                    autoplay
-                    loop
-                    muted
-                    playsinline
-                    preload="auto"
-                    class="hero__video"
-                  >
-                    <source src="/aluedge-hero-video-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
-                    <source src="/aluedge-hero-video.mp4" type="video/mp4" media="(min-width: 641px)" />
-                    <source src="/aluedge-hero-video.mp4" type="video/mp4" />
-                  </video>
-                `
-              }}
+              src="/images/aluedge-hero-mobile.jpg"
             />
             <div className="hero__floating-card">
               <span>{businessDetails.serviceArea} Project Execution</span>
@@ -446,15 +427,6 @@ export default function HomePage() {
         <div className="feature-strip__track">
           {featureStrip.map(({ title, text, Icon }) => (
             <article className="feature-strip__item" key={title}>
-              <Icon size={34} strokeWidth={1.8} />
-              <div>
-                <h2>{title}</h2>
-                <p>{text}</p>
-              </div>
-            </article>
-          ))}
-          {featureStrip.map(({ title, text, Icon }) => (
-            <article aria-hidden="true" className="feature-strip__item feature-strip__item--dup" key={`${title}-dup`}>
               <Icon size={34} strokeWidth={1.8} />
               <div>
                 <h2>{title}</h2>

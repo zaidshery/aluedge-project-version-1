@@ -1274,7 +1274,7 @@ svg {
   font-size: clamp(46px, 4.1vw, 66px);
   font-weight: 800;
   letter-spacing: -0.035em;
-  line-height: 1.05;
+  line-height: 1.15;
   text-wrap: balance;
 }
 
@@ -1313,7 +1313,7 @@ svg {
   background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  display: inline;
 }
 
 .hero__title-mobile,
@@ -1330,7 +1330,7 @@ svg {
   background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  display: inline-block;
+  display: inline;
 }
 
 .hero__lead {
@@ -3169,7 +3169,7 @@ a.footer__contact-row:hover .footer__contact-copy strong {
   .hero h1 {
     max-width: 100%;
     font-size: clamp(28px, 8vw, 36px);
-    line-height: 1.06;
+    line-height: 1.15;
     letter-spacing: -0.025em;
   }
 
@@ -3346,9 +3346,10 @@ a.footer__contact-row:hover .footer__contact-copy strong {
 
   .feature-strip {
     margin: 14px auto 0;
-    overflow: hidden;
+    overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
+    scroll-snap-type: x mandatory;
     border-color: rgba(209, 160, 105, 0.18);
     border-radius: 16px;
     background:
@@ -3356,8 +3357,6 @@ a.footer__contact-row:hover .footer__contact-copy strong {
       #061827;
     box-shadow: 0 18px 40px rgba(7, 21, 38, 0.14);
     -webkit-overflow-scrolling: touch;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
   }
 
   .feature-strip::-webkit-scrollbar {
@@ -3366,10 +3365,7 @@ a.footer__contact-row:hover .footer__contact-copy strong {
 
   .feature-strip__track {
     display: flex;
-    width: max-content;
     gap: 10px;
-    animation: featureStripRun 24s linear infinite;
-    will-change: transform;
   }
 
   .feature-strip article {
@@ -3383,15 +3379,7 @@ a.footer__contact-row:hover .footer__contact-copy strong {
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.08),
       0 10px 22px rgba(1, 10, 18, 0.18);
-  }
-
-  .feature-strip .feature-strip__item--dup {
-    display: flex !important;
-  }
-
-  .feature-strip:hover .feature-strip__track,
-  .feature-strip:focus-within .feature-strip__track {
-    animation-play-state: paused;
+    scroll-snap-align: center;
   }
 
   .feature-strip h2 {
@@ -3406,15 +3394,6 @@ a.footer__contact-row:hover .footer__contact-copy strong {
   .feature-strip svg {
     width: 20px;
     height: 20px;
-  }
-
-  @keyframes featureStripRun {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-50% - 5px));
-    }
   }
 
   .solutions,

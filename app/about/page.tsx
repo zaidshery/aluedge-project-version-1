@@ -140,7 +140,7 @@ export default function AboutPage() {
       <section className="visual-section visual-section--paper !py-10">
         <div className="container grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
           <div className="p-6 bg-white border border-line rounded-lg shadow-sm">
-            <span className="block font-display text-4xl sm:text-5xl font-extrabold text-green mb-2">200+</span>
+            <span className="block font-display text-4xl sm:text-5xl font-extrabold text-green mb-2">2500+</span>
             <strong className="block text-sm text-ink uppercase tracking-wider font-extrabold">Successfully Completed Projects</strong>
             <span className="text-xs text-muted mt-1 block">Across diverse sectors nationwide</span>
           </div>

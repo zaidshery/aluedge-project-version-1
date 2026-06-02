@@ -8,7 +8,7 @@ Use this checklist before presenting the homepage as final launch material.
 - [ ] Phone link: `+919826345598`
 - [ ] Email: `aluedge.co@gmail.com`
 - [ ] Established year: `2009`
-- [ ] Project count claim: `200+`
+- [ ] Project count claim: `2500+`
 - [ ] Service area claim: `Pan-India`
 - [ ] Address: `3-FA, Scheme No. 94, Near Pipliyahana Square, Ring Road, Indore-452016, Madhya Pradesh, INDIA`
 

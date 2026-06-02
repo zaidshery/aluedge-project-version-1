@@ -66,6 +66,15 @@ export default function Footer() {
                 <p>{businessDetails.address}</p>
               </div>
             </div>
+            <div className="footer__contact-row">
+              <span className="footer__contact-icon" aria-hidden="true">
+                <MapPin size={22} strokeWidth={2.3} />
+              </span>
+              <div className="footer__contact-copy">
+                <strong>Factory Address</strong>
+                <p>{businessDetails.factoryAddress}</p>
+              </div>
+            </div>
             <a className="footer__contact-row footer__contact-row--email" href={businessDetails.emailHref}>
               <span className="footer__contact-icon" aria-hidden="true">
                 <Mail size={20} strokeWidth={2.25} />
