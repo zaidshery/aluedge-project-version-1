@@ -97,7 +97,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="The AluEdge Story"
         title="Redefining Modern Architecture Since 2009"
-        description="ALUEDGE, established in 2009, is a trusted pioneer in facade systems, aluminium, and uPVC windows and doors. We focus on delivering high-quality products that seamlessly combine modern design, engineering precision, strong durability, and smooth performance."
+        description="ALUEDGE, established in 2009, is a trusted pioneer in Façade Systems, Aluminium, and uPVC Windows and Doors. We focus on delivering high-quality products that seamlessly combine modern design, engineering precision, strong durability, and smooth performance."
         media={(
           <Image
             alt="Premium architectural glass facade details"
@@ -117,7 +117,7 @@ export default function AboutPage() {
               Redefining Modern Architecture Since 2009
             </h1>
             <p className="text-[#bdc8d2] text-sm sm:text-base leading-relaxed max-w-xl">
-              ALUEDGE, established in 2009, is a trusted pioneer in façade systems, aluminium, and uPVC windows and doors. We focus on delivering high-quality products that seamlessly combine modern design, engineering precision, strong durability, and smooth performance.
+              ALUEDGE, established in 2009, is a trusted pioneer in Façade Systems, Aluminium, and uPVC Windows and Doors. We focus on delivering high-quality products that seamlessly combine modern design, engineering precision, strong durability, and smooth performance.
             </p>
             <p className="text-[#bdc8d2] text-sm sm:text-base leading-relaxed max-w-xl mt-4">
               Our architectural solutions cater to residential, commercial, and industrial spaces. By using premium materials and advanced technology, we ensure our products offer maximum strength, optimal insulation, and a long-lasting life. From design and fabrication to complete installation and maintenance, our experienced team ensures professional, on-time delivery with rigorous attention to every detail.

@@ -3383,7 +3383,11 @@ a.footer__contact-row:hover .footer__contact-copy strong {
     display: flex !important;
   }
 
-  .feature-strip:hover .feature-strip__track,
+  @media (hover: hover) {
+    .feature-strip:hover .feature-strip__track {
+      animation-play-state: paused;
+    }
+  }
   .feature-strip:focus-within .feature-strip__track {
     animation-play-state: paused;
   }
@@ -3947,9 +3951,9 @@ a.footer__contact-row:hover .footer__contact-copy strong {
 
 @keyframes featureStripRun {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(calc(-50% - 5px));
+    transform: translate3d(calc(-50% - 5px), 0, 0);
   }
 }

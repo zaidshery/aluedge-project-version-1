@@ -80,7 +80,7 @@ const solutions: SolutionCard[] = [
     href: "/products",
   },
   {
-    title: "uPVC Doors & Windows",
+    title: "uPVC Windows & Doors",
     text: "Advanced soundproof, thermal-insulated, and highly energy-efficient designs that deliver perfect quiet and comfort.",
     Icon: Home,
     image: "/images/optimized/aluedge-solution-windows-820.webp",
@@ -88,7 +88,7 @@ const solutions: SolutionCard[] = [
     href: "/products",
   },
   {
-    title: "Aluminium Doors & Windows",
+    title: "Aluminium Windows & Doors",
     text: "Premium sliding systems, casements, and sliding-folding doors built with structural elegance and high-grade finishes.",
     Icon: Home,
     image: "/images/optimized/aluedge-project-residence-820.webp",
@@ -96,7 +96,7 @@ const solutions: SolutionCard[] = [
     href: "/products",
   },
   {
-    title: "ACP & HPL Cladding",
+    title: "Cladding Solutions",
     text: "Lightweight, weather-resistant Aluminium Composite Panel and High-Pressure Laminate cladding systems.",
     Icon: Layers,
     image: "/images/optimized/aluedge-solution-cladding-820.webp",
@@ -368,10 +368,10 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="hero__lead hero__lead-desktop">
-              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade systems, premium aluminium, and uPVC windows and doors.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade Systems, premium Aluminium, and uPVC Windows and Doors.
             </p>
             <p className="hero__lead hero__lead-mobile">
-              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade systems, premium aluminium, and uPVC windows and doors.
+              Established in 2009, ALUEDGE is a trusted world-class brand delivering innovative, high-quality architectural Façade Systems, premium Aluminium, and uPVC Windows and Doors.
             </p>
             <div className="hero__actions">
               <Button href="#solutions">Explore Our Solutions</Button>
@@ -451,8 +451,8 @@ export default function HomePage() {
           <p className="eyebrow">Complete fenestration solutions</p>
           <h2>End-to-End Systems for Modern Building Envelopes</h2>
           <p className="section-heading__text">
-            From precision windows and doors to facade, glazing, cladding, ceiling, railing,
-            and partition systems, AluEdge coordinates architectural packages with a clear
+            From precision Windows and Doors to Facade, Glazing, Cladding, Ceiling, Railing,
+            and Partition Systems, AluEdge coordinates architectural packages with a clear
             performance-first approach.
           </p>
         </div>

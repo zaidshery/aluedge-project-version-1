@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="footer__brand">
           <BrandMark />
           <p>
-            Premium aluminium, uPVC, facade and glazing solutions for modern architecture across
+            Premium Aluminium, uPVC, Facade and glazing solutions for modern architecture across
             India.
           </p>
           <div className="footer__social-group">
@@ -31,11 +31,11 @@ export default function Footer() {
           </div>
           <div>
             <h2>Our Solutions</h2>
-            <Link href="/products/windows-doors">Windows & Doors</Link>
-            <Link href="/products/facade-glazing">Facade & Glazing</Link>
-            <Link href="/products/cladding-ceilings">Cladding Solutions</Link>
-            <Link href="/products/cladding-ceilings">Ceiling Systems</Link>
-            <Link href="/products">Color & Materials</Link>
+            <Link href="/products/facade-solution">Façade Solutions</Link>
+            <Link href="/products/aluminium-windows-doors">Aluminium Windows & Doors</Link>
+            <Link href="/products/upvc-windows-doors">uPVC Windows & Doors</Link>
+            <Link href="/products/cladding-solutions">Cladding Solutions</Link>
+            <Link href="/products/ceiling-solutions">Ceiling Solutions</Link>
           </div>
           <div>
             <h2>Resources</h2>
