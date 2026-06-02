@@ -434,6 +434,15 @@ export default function HomePage() {
               </div>
             </article>
           ))}
+          {featureStrip.map(({ title, text, Icon }) => (
+            <article aria-hidden="true" className="feature-strip__item feature-strip__item--dup" key={`${title}-dup`}>
+              <Icon size={34} strokeWidth={1.8} />
+              <div>
+                <h2>{title}</h2>
+                <p>{text}</p>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
