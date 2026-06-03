@@ -18,7 +18,6 @@ import {
   Sun,
   Users,
   Volume2,
-  Wrench,
   Palette,
   ChevronLeft,
   ChevronRight,
@@ -77,15 +76,7 @@ const solutions: SolutionCard[] = [
     Icon: Building2,
     image: "/images/optimized/aluedge-solution-facade-820.webp",
     features: ["Curtain Walls", "High-Rise Envelopes"],
-    href: "/products",
-  },
-  {
-    title: "uPVC Windows & Doors",
-    text: "Advanced soundproof, thermal-insulated, and highly energy-efficient designs that deliver perfect quiet and comfort.",
-    Icon: Home,
-    image: "/images/optimized/aluedge-solution-windows-820.webp",
-    features: ["Soundproof Seal", "Energy Efficient"],
-    href: "/products",
+    href: "/products/facade-solution",
   },
   {
     title: "Aluminium Windows & Doors",
@@ -93,7 +84,15 @@ const solutions: SolutionCard[] = [
     Icon: Home,
     image: "/images/optimized/aluedge-project-residence-820.webp",
     features: ["Sliding & Folding", "Premium Finish"],
-    href: "/products",
+    href: "/products/aluminium-windows-doors",
+  },
+  {
+    title: "uPVC Windows & Doors",
+    text: "Advanced soundproof, thermal-insulated, and highly energy-efficient designs that deliver perfect quiet and comfort.",
+    Icon: Home,
+    image: "/images/optimized/aluedge-solution-windows-820.webp",
+    features: ["Soundproof Seal", "Energy Efficient"],
+    href: "/products/upvc-windows-doors",
   },
   {
     title: "Cladding Solutions",
@@ -101,31 +100,15 @@ const solutions: SolutionCard[] = [
     Icon: Layers,
     image: "/images/optimized/aluedge-solution-cladding-820.webp",
     features: ["ACP Cladding", "HPL Panels"],
-    href: "/products",
+    href: "/products/cladding-solutions",
   },
   {
-    title: "Structural Glazing",
-    text: "Seamless glass exteriors combining minimalist aesthetic sightlines with engineering precision and wind-load resistance.",
-    Icon: Building2,
-    image: "/images/optimized/aluedge-project-office-820.webp",
-    features: ["Seamless Sightlines", "Wind-Load Deflection"],
-    href: "/products",
-  },
-  {
-    title: "Ceiling Systems",
+    title: "Ceiling Solutions",
     text: "High-finish metal linear ceilings, grid tile ceilings, and custom-engineered architectural false ceiling profiles.",
     Icon: Layers,
     image: "/images/optimized/aluedge-solution-ceiling-820.webp",
     features: ["Metal Ceilings", "Grid & False Ceilings"],
-    href: "/products",
-  },
-  {
-    title: "Glass Railings & Partitions",
-    text: "Premium balcony glass balustrades, staircase glass, office partitions, and heavy-duty frame-free entries.",
-    Icon: Wrench,
-    image: "/images/optimized/aluedge-solution-railing-820.webp",
-    features: ["Glass Railings", "Office Partitions"],
-    href: "/products",
+    href: "/products/ceiling-solutions",
   },
 ];
 
@@ -167,7 +150,7 @@ const projects: ProjectCard[] = [
 const stats: StatCard[] = [
   { value: businessDetails.projectsDelivered, label: "Projects Delivered", Icon: Building2 },
   { value: businessDetails.serviceArea, label: "Execution Support", Icon: Globe2 },
-  { value: "Resi + Comm", label: "Project Experience", Icon: Users },
+  { value: "Residential + Commercial", label: "Project Experience", Icon: Users },
   { value: "Facade + Fenestration", label: "System Expertise", Icon: ShieldCheck },
 ];
 
