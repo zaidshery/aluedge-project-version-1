@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import BrandMark from "./BrandMark";
 import { businessDetails } from "./businessDetails";
-import SocialLinks from "./SocialLinks";
+import GlowingSocialLinks from "./GlowingSocialLinks";
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
           </p>
           <div className="footer__social-group">
             <span className="footer__social-label">Connect with us</span>
-            <SocialLinks className="footer__social" linkClassName="footer__social-link" />
+            <GlowingSocialLinks className="!items-start" />
           </div>
         </div>
         <div className="footer__links" aria-label="Footer navigation">

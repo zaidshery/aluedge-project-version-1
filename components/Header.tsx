@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import BrandMark from "./BrandMark";
 import Button from "./Button";
-import SocialLinks from "./SocialLinks";
+import GlowingSocialLinks from "./GlowingSocialLinks";
 
 type NavItem = {
   label: string;
@@ -189,7 +189,7 @@ export default function Header() {
                 </div>
                 <div className="mobile-menu__actions">
                   <span className="mobile-menu__social-label">Connect with us</span>
-                  <SocialLinks className="mobile-menu__social" linkClassName="mobile-menu__social-link" />
+                  <GlowingSocialLinks className="!items-start" />
                 </div>
               </div>
             )}

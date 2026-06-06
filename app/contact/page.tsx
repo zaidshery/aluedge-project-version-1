@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import { businessDetails } from "../../components/businessDetails";
 import PageHero from "../../components/PageHero";
 import SectionHeader from "../../components/SectionHeader";
+import GlowingSocialLinks from "../../components/GlowingSocialLinks";
 
 const faqs = [
   {
@@ -323,6 +324,11 @@ export default function ContactPage() {
                     <a key={email} href={`mailto:${email}`} className="text-[#fff] font-bold text-sm block hover:underline transition-all mt-0.5">{email}</a>
                   ))}
                 </div>
+              </div>
+
+              <div className="border-t border-white/10 pt-6 mt-6">
+                <h3 className="text-[10px] font-black tracking-widest text-white/50 uppercase mb-4">Connect on Social</h3>
+                <GlowingSocialLinks className="!items-start" />
               </div>
             </div>
           </div>
